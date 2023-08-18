@@ -110,6 +110,7 @@ in
       clangd.enable = true;
       rust-analyzer.enable = true;
       pyright.enable = true;
+      hls.enable = true;
     };
 
     plugins.luasnip.enable = true;
