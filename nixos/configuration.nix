@@ -126,6 +126,7 @@
 
   environment.systemPackages = with pkgs; [
     wget
+    killall
   ];
 
   programs.neovim = {
