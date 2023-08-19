@@ -22,10 +22,10 @@ in
     users.${user} = { pkgs, ... }: {
       
       imports = [
-        ./shell.nix
-        ./espanso/espanso.nix
-	./development/development.nix
-	./nvim/nvim.nix
+        ./shell
+        ./espanso
+	./development
+	./nvim
 	./alacritty.nix
 	./firefox.nix
       ];

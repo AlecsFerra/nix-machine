@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./user/user.nix
+    ./user
   ];
   
   # +500M boot efi partition
@@ -102,19 +102,18 @@
       jack.enable = true;
     };
 
-    # Disable ppd explicitly
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
+    # tlp.enable = true;
 
     # OpenSSH
     openssh.enable = true;
 
     # Fingerprint reader
     fprintd.enable = true;
+
+    fwupd.enable = true;
   };
 
-  powerManagement.powertop = {
-    enable = true;
-  };
 
   hardware = {
     # Disable pulseaudio explicitly
