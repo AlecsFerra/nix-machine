@@ -17,9 +17,11 @@
       ":q" = "exit";
       v = "$EDITOR";
       s = "sudo ";
+      sv = "sudoedit";
       znix-shell = "nix-shell --run zsh";
       pkg-repl = "nix repl --file '<nixpkgs/nixos>'";
       rebuild-switch = "sudo nixos-rebuild switch";
+      tmp = "cd $(mktemp -d)";
     };
 
     initExtra = ''
