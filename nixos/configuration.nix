@@ -122,6 +122,8 @@
     bluetooth.enable = true;
 
     cpu.intel.updateMicrocode = true;
+
+    opengl.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
