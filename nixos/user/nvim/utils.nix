@@ -33,6 +33,16 @@ in
       };
     };
 
+    plugins.undotree.enable = true;
+
+    maps.normal = {
+      "<leader>u" = {
+        action = ":UndotreeToggle<CR>";
+        desc = "[U]ndo tree";
+      };
+    };
+
+
     plugins.telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
