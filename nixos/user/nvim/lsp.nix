@@ -4,6 +4,8 @@ let
     "<cmd>lua ${call}<cr>";
 in
 {
+  imports = [ ./extra-lang ];
+
   programs.nixvim = {
    
    maps.normal = {
