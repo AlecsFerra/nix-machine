@@ -113,6 +113,7 @@ in
       rust-analyzer.enable = true;
       pyright.enable = true;
       hls.enable = true;
+      julials.enable = true;
     };
 
     plugins.luasnip.enable = true;

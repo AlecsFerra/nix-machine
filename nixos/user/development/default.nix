@@ -22,6 +22,9 @@
     # Rust
     cargo
 
+    # Julia
+    julia
+
     # Agda
     (agda.withPackages [
       agdaPackages.standard-library
