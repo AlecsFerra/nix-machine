@@ -140,9 +140,9 @@
 
   # Auto upgrade
   system.autoUpgrade = {
-    enable = true;
+    enable = false;
     channel = "https://nixos.org/channels/nixos-unstable";
-    dates = "daily";
+    dates = "04:00";
   };
 
   nix = {
