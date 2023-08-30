@@ -39,6 +39,7 @@
         # Usability
         vimium
         darkreader
+        bitwarden
       ];
 
       settings = {
