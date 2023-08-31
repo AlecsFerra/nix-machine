@@ -51,5 +51,24 @@ in
 
       termguicolors = true;
     };
+
+    maps.normal = {
+      "gt" = {
+        action = ":bnext<CR>";
+        desc = "[G]oto nex[T] buffer";
+      };
+      "gT" = {
+        action = ":bprevious<CR>";
+        desc = "[G]oto previus buffer";
+      };
+      "M" = {
+        action = "<Esc>:m .+1<CR>";
+        desc = "[M]ove current line down";
+      };
+      "m" = {
+        action = "<Esc>:m .-2<CR>";
+        desc = "[M]ove current line up";
+      };
+    };
   };
 }
