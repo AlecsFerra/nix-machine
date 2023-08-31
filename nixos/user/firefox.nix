@@ -31,15 +31,24 @@
     profiles.alecs = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         # Needed
-        # umatrix
         ublock-origin
+        # umatrix
         # bypass-paywalls-clean
         consent-o-matic
         facebook-container
+        clearurls
+        skip-redirect
+
         # Usability
         vimium
         darkreader
         bitwarden
+        
+        # Enhance
+        lovely-forks
+        nitter-redirect
+        sponsorblock
+        theater-mode-for-youtube
       ];
 
       settings = {
