@@ -26,8 +26,8 @@ in
         ./espanso
 	./development
 	./nvim
-	./alacritty.nix
-	./firefox.nix
+	./alacritty
+	./firefox
       ];
 
       # Installed packages at the user level
