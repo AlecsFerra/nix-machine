@@ -22,6 +22,8 @@
       pkg-repl = "nix repl --file '<nixpkgs/nixos>'";
       rebuild-switch = "sudo nixos-rebuild switch";
       tmp = "cd $(mktemp -d)";
+      patch = 
+        "patchelf --set-interpreter \"$(cat $NIX_CC/nix-support/dynamic-linker)\"";
     };
 
     initExtra = ''
