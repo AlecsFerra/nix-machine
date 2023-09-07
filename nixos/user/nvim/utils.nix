@@ -86,12 +86,16 @@ in
         desc = "[S]earch current [W]ord";
       };
       "<leader>sg" = {
-        action = telescopeBuiltin "grep_string()";
+        action = telescopeBuiltin "live_grep()";
         desc = "[S]earch by [G]rep";
       };
       "<leader>sd" = {
         action = telescopeBuiltin "diagnostics()";
         desc = "[S]earch [D]iagnostics";
+      };
+      "<leader>sr" = {
+        action = telescopeBuiltin "resume()";
+        desc = "[S]earch [R]esume";
       };
     };
   };

@@ -19,10 +19,7 @@
     ghc
     stack
 
-    # Rust
-    cargo
-
-    # Julia
+    # Julia 
     julia
     # IJulia
     jupyter
