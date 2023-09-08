@@ -19,13 +19,6 @@
     ghc
     stack
 
-    # Julia 
-    julia
-    # IJulia
-    jupyter
-    python311Packages.jupyterlab
-    python311Packages.jupyter-core
-
     # Agda
     (agda.withPackages [
       agdaPackages.standard-library
