@@ -20,7 +20,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "uinput" ];
 
     # Systemd boot
@@ -43,8 +43,11 @@
 
   networking = {
     hostName = "fuck-nixos";
-
+    # Network Manager: 
     networkmanager.enable = true;
+    # WPA supplicant
+    # wireless.enable = true;
+
     nameservers = [ "1.1.1.1" ];
   };
 

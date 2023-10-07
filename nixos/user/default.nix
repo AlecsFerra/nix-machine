@@ -37,6 +37,10 @@ in
 	htop
 	neofetch
 	zathura
+	python3
+	unzip
+	chromium
+	qbittorrent
       ];
 
       # The same as the nix-os state version
