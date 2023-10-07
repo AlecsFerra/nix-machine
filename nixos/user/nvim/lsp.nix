@@ -1,32 +1,40 @@
 { pkgs, ... }:
-let
-  lua = call: 
-    "<cmd>lua ${call}<cr>";
-in
 {
   imports = [ ./extra-lang ];
 
   programs.nixvim = {
-   
-   maps.normal = {
+    
+    keymaps = [
       # Diagnostic keymap
-      "[d" = {
-        action = lua "vim.diagnostic.goto_prev()";
-        desc = "Go to previous diagnostic message";
-      };
-      "]d" = {
-        action = lua "vim.diagnostic.goto_next()";
-        desc = "Go to next diagnostic message";
-      };
-      "<leader>e" = {
-        action = lua "vim.diagnostic.open_float()";
-        desc = "Open floating diagnostic message";
-      };
-      "<leader>q" = {
-        action = lua "vim.diagnostic.setloclist()";
-        desc = "Open diagnostic list";
-      };
-    };
+      {
+        mode = "n";
+        key = "[d";
+        lua = true;
+        action = "vim.diagnostic.goto_prev";
+        options.desc = "Go to previous diagnostic message";
+      }
+      {
+        mode = "n";
+        key = "]d";
+        lua = true;
+        action = "vim.diagnostic.goto_next";
+        options.desc = "Go to next diagnostic message";
+      }
+      {
+        mode = "n";
+        key = "<leader>e";
+        lua = true;
+        action = "vim.diagnostic.open_float";
+        options.desc = "Open floating diagnostic message";
+      }
+      {
+        mode = "n";
+        key = "<leader>q";
+        lua = true;
+        action = "vim.diagnostic.setloclist";
+        options.desc = "Open diagnostic list";
+      }
+    ];
 
     plugins.fidget.enable = true;
     plugins.nvim-lightbulb.enable = true;

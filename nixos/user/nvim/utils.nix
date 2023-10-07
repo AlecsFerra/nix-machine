@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   telescopeBuiltin = call: 
-    "<cmd>lua require('telescope.builtin').${call}<cr>";
+    "require('telescope.builtin').${call}";
 in
 {
   home.packages = with pkgs; [
@@ -35,14 +35,6 @@ in
 
     plugins.undotree.enable = true;
 
-    maps.normal = {
-      "<leader>u" = {
-        action = ":UndotreeToggle<CR>";
-        desc = "[U]ndo tree";
-      };
-    };
-
-
     plugins.telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
@@ -53,50 +45,94 @@ in
       };
     };
 
-    # Keybindings for telescope
-    maps.normal = {
-      "<leader>?" = {
-        action = telescopeBuiltin "oldfile()";
-        desc = "[?] Find recently opened files";
-      };
-      "<leader><space>" = {
-        action = telescopeBuiltin "buffers()";
-        desc = "[ ] Find existing buffers";
-      };
-      "<leader>/" = {
-        action = telescopeBuiltin 
-          ("current_bffer_fuzzy_find(require('telescope.themes')"
-          + ".get_dropdown { winblend = 10, previewer = false, })");
-        desc = "[/] Fuzzily search in current buffer";
-      };
-      "<leader>gf" = {
-        action = telescopeBuiltin "git_files()";
-        desc = "Search [G]it [F]iles";
-      };
-      "<leader>sf" = {
-        action = telescopeBuiltin "find_files()";
-        desc = "[S]earch [F]iles";
-      };
-      "<leader>sh" = {
-        action = telescopeBuiltin "help_tags()";
-        desc = "[S]earch [H]elp";
-      };
-      "<leader>sw" = {
-        action = telescopeBuiltin "grep_string()";
-        desc = "[S]earch current [W]ord";
-      };
-      "<leader>sg" = {
-        action = telescopeBuiltin "live_grep()";
-        desc = "[S]earch by [G]rep";
-      };
-      "<leader>sd" = {
-        action = telescopeBuiltin "diagnostics()";
-        desc = "[S]earch [D]iagnostics";
-      };
-      "<leader>sr" = {
-        action = telescopeBuiltin "resume()";
-        desc = "[S]earch [R]esume";
-      };
-    };
+    keymaps = [
+      # Bindings for undotree
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = ":UndotreeToggle<CR>";
+        options.desc = "[U]ndo tree";
+      }
+      # Keybindings for telescope
+      {
+        mode = "n";
+        key = "<leader>?";
+        lua = true;
+        action = telescopeBuiltin "oldfiles";
+        options.desc = "[?] Find recently opened files";
+      }
+      {
+        mode = "n";
+        key = "<leader><space>";
+        lua = true;
+        action = telescopeBuiltin "buffers";
+        options.desc = "[ ] Find existing buffers";
+      }
+      {
+        mode = "n";
+        key = "<leader>/";
+        lua = true;
+        action = ''
+          function()
+            require('telescope.builtin')
+              .current_buffer_fuzzy_find(require('telescope.themes')
+              .get_dropdown {
+                winblend = 10,
+                previewer = false,
+              })
+          end
+        '';
+        options.desc = "[/] Fuzzily search in current buffer";
+      }
+      {
+        mode = "n";
+        key = "<leader>gf";
+        lua = true;
+        action = telescopeBuiltin "git_files";
+        options.desc = "Search [G]it [F]iles";
+      }
+      {
+        mode = "n";
+        key = "<leader>sf";
+        lua = true;
+        action = telescopeBuiltin "find_files";
+        options.desc = "[S]earch [F]iles";
+      }
+      {
+        mode = "n";
+        key = "<leader>sh";
+        lua = true;
+        action = telescopeBuiltin "help_tags";
+        options.desc = "[S]earch [H]elp";
+      }
+      {
+        mode = "n";
+        key = "<leader>sw";
+        lua = true;
+        action = telescopeBuiltin "grep_string";
+        options.desc = "[S]earch current [W]ord";
+      }
+      {
+        mode = "n";
+        key = "<leader>sg";
+        lua = true;
+        action = telescopeBuiltin "live_grep";
+        options.desc = "[S]earch by [G]rep";
+      }
+      {
+        mode = "n";
+        key = "<leader>sd";
+        lua = true;
+        action = telescopeBuiltin "diagnostics";
+        options.desc = "[S]earch [D]iagnostics";
+      }
+      {
+        mode = "n";
+        key = "<leader>sr";
+        lua = true;
+        action = telescopeBuiltin "resume";
+        options.desc = "[S]earch [R]esume";
+      }
+    ];
   };
 }

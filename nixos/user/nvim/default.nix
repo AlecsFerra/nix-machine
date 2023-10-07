@@ -52,23 +52,31 @@ in
       termguicolors = true;
     };
 
-    maps.normal = {
-      "gt" = {
+    keymaps = [
+      {
+        mode = "n";
+        key = "gt";
         action = ":bnext<CR>";
-        desc = "[G]oto nex[T] buffer";
-      };
-      "gT" = {
+        options.desc = "[G]oto nex[T] buffer";
+      }
+      {
+        mode = "n";
+        key = "gT";
         action = ":bprevious<CR>";
-        desc = "[G]oto previus buffer";
-      };
-      "M" = {
+        options.desc = "[G]oto previus buffer";
+      }
+      {
+        mode = "n";
+        key = "M";
         action = "<Esc>:m .+1<CR>";
-        desc = "[M]ove current line down";
-      };
-      "m" = {
+        options.desc = "[M]ove current line down";
+      }
+      {
+        mode = "n";
+        key = "m";
         action = "<Esc>:m .-2<CR>";
-        desc = "[M]ove current line up";
-      };
-    };
+        options.desc = "[M]ove current line up";
+      }
+    ];
   };
 }
