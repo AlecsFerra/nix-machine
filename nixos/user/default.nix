@@ -41,6 +41,8 @@ in
 	unzip
 	chromium
 	qbittorrent
+	scrcpy
+	gnome.gnome-session
       ];
 
       # The same as the nix-os state version

@@ -29,7 +29,7 @@ in
         initSelection = "<c-space>";
         nodeIncremental = "<c-space>";
         scopeIncremental = "<c-s>";
-        nodeDecremental = "<M-space>";
+        nodeDecremental = "<bs>";
       };
     };
 
