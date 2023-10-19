@@ -31,7 +31,7 @@ in
       clipboard = "unnamedplus";
       
       breakindent = true;
-      tabstop = 4;
+      tabstop = 2;
       shiftwidth = 2;
       expandtab = true;
       colorcolumn = "80";
