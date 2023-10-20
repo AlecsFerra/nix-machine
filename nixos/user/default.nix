@@ -41,6 +41,7 @@ in
 	chromium
 	qbittorrent
 	scrcpy
+	tree
 	gnome.gnome-session
       ];
 
