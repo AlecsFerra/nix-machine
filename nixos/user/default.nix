@@ -23,10 +23,9 @@ in
       
       imports = [
         ./shell
-        ./espanso
 	./development
 	./nvim
-	./alacritty
+	./desktop
 	./firefox
       ];
 
