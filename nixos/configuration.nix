@@ -167,8 +167,18 @@
   # build-vm conf
   virtualisation.vmVariant = {
     virtualisation = {
-      memorySize = 4096; # Use 2048MiB memory.
+      memorySize = 4096; #Mb
       cores = 3;         
+    };
+
+    virtualisation.qemu.options = [
+      "-device virtio-vga-gl"
+      "-display sdl,gl=on,show-cursor=off"
+      "-audio pa,model=hda"
+    ];
+
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
     };
   };
 
