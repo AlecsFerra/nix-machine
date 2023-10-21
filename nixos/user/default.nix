@@ -42,7 +42,6 @@ in
 	qbittorrent
 	scrcpy
 	tree
-	gnome.gnome-session
       ];
 
       # The same as the nix-os state version

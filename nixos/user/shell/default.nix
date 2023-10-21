@@ -16,7 +16,6 @@
     rebuild-switch = "sudo nixos-rebuild switch";
 
     tmp = "cd $(mktemp -d)";
-    inhibit = "gnome-session-inhibit --inhibit idle";
     open = "xdg-open";
 
     tb = "nc termbin.com 9999";
