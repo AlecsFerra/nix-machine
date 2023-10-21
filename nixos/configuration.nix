@@ -77,6 +77,7 @@
   # Zsh is the system shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+  users.users.alecs.initialPassword = "";
   environment.shells = [ pkgs.zsh ];
   
   services = { 
@@ -161,6 +162,14 @@
       "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;
       };
+  };
+
+  # build-vm conf
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 4096; # Use 2048MiB memory.
+      cores = 3;         
+    };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
