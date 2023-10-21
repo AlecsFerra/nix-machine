@@ -1,9 +1,9 @@
 { pkgs, ... }:
 let vimDirections = [
-  { key = "l"; shortDir = "r"; resize = "+10 0"; }
+  { key = "l"; shortDir = "r"; resize = "10 0"; }
   { key = "h"; shortDir = "l"; resize = "-10 0"; }
-  { key = "k"; shortDir = "u"; resize = "0   -10"; }
-  { key = "j"; shortDir = "d"; resize = "0   +10"; }
+  { key = "k"; shortDir = "u"; resize = "0 -10"; }
+  { key = "j"; shortDir = "d"; resize = "0 10"; }
 ];
 in {
   wayland.windowManager.hyprland = {
@@ -112,5 +112,22 @@ in {
         "col.shadow" = "rgba(00000055)";
       };
     };
+
+    extraConfig = ''
+      bind = $mod, R, submap, resize
+      submap = resize
+      '' +
+      (builtins.concatStringsSep 
+        "\n"
+        (builtins.map
+          (it: "binde = , ${it.key}, resizeactive, ${it.resize}")
+          vimDirections
+        )
+      )
+      + "\n" + ''
+      bind = , escape, submap, reset
+      submap = reset
+    '';
+
   };
 }
