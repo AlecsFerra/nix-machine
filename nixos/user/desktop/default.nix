@@ -4,7 +4,7 @@
     ./espanso
     ./alacritty
     ./hyprland
-    ./albert.nix
+    ./albert
   ];
   
   # Notifications
