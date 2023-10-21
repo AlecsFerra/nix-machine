@@ -135,6 +135,12 @@ in {
       + "\n" + ''
       bind = , escape, submap, reset
       submap = reset
+
+      # Passtrough
+      bind = CTRL , Alt_L, submap, passthrough
+      submap = passthrough
+      bind = CTRL , Alt_L, submap, reset
+      submap = reset
     '';
 
   };
