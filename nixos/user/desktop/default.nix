@@ -4,6 +4,7 @@
     ./espanso
     ./hyprland
     ./albert
+    ./lock
   ];
   
   home.packages = with pkgs; [

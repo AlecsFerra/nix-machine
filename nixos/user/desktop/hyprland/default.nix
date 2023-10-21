@@ -42,6 +42,8 @@ in {
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
 
+        "$mod, x, exec, swaylock"
+
         "$mod, Return, exec, alacritty"
       ]
       # Move focus
