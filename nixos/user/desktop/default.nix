@@ -7,6 +7,11 @@
     ./albert
   ];
   
+  home.packages = with pkgs; [
+    # Brightness keybindings
+    brightnessctl
+  ];
+
   # Notifications
   services.mako = {
     enable = true;

@@ -46,6 +46,10 @@ in {
         ", XF86AudioMute,        exec, wpctl set-mute @DEFAULT_SINK@ toggle"
         ", XF86AudioMicMute,     exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
+        # Brighness
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
+
         "$mod, Return, exec, alacritty"
       ]
       # Move focus
