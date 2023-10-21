@@ -104,6 +104,16 @@
     fwupd.enable = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    gtkUsePortal = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [ 
+      xdg-desktop-portal-gtk 
+      xdg-desktop-portal-wlr 
+    ];
+  };
+
 
   hardware = {
     # Disable pulseaudio explicitly
