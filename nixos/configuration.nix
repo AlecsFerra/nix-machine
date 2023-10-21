@@ -78,17 +78,6 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
   environment.shells = [ pkgs.zsh ];
-
-  # X11 + Gnome
-  services.xserver = {
-    enable = true;
-
-    layout = "it";
-    xkbOptions = "ctrl:swapcaps";
-
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-  };
   
   services = { 
     # CUPS
