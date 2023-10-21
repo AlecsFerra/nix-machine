@@ -2,7 +2,6 @@
 {
   imports = [ 
     ./espanso
-    ./alacritty
     ./hyprland
     ./albert
   ];

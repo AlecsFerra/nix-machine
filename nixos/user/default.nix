@@ -27,6 +27,7 @@ in
 	./nvim
 	./desktop
 	./firefox
+	./alacritty
       ];
 
       # Installed packages at the user level
