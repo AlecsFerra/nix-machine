@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [ 
     ./espanso
@@ -11,7 +11,21 @@
     brightnessctl
     # Show
     swayosd
+    # Background
+    swaybg
   ];
+
+  systemd.user.services = {
+    # Set background on startup
+    wallpaper = {
+      Service.ExecStart = 
+        "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.stylix.image}";
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+    };
+  };
 
   # Notifications
   services.mako = {

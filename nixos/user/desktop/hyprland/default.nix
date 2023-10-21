@@ -109,7 +109,6 @@ in {
         shadow_offset = "0 2";
         shadow_range = 20;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(00000055)";
       };
     };
 

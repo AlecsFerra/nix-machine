@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.espanso = {
-    enable = true;
+    enable = false;
     package = pkgs.espanso-wayland;
     configs = {
       default."seach_shortcut" = "off";
