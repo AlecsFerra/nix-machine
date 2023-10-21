@@ -40,16 +40,6 @@ in {
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
 
-        # Audio
-        ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
-        ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
-        ", XF86AudioMute,        exec, swayosd --output-volume mute-toggle"
-        ", XF86AudioMicMute,     exec, swayosd --input-volume mute-toggle"
-
-        # Brighness
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
-
         "$mod, Return, exec, alacritty"
       ]
       # Move focus
@@ -78,6 +68,19 @@ in {
           in "$mod SHIFT, ${key}, movetoworkspace, ${ws_no}")
         10
       );
+
+      # Repeated keybindings
+      binde = [
+        # Audio
+        ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
+        ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
+        ", XF86AudioMute,        exec, swayosd --output-volume mute-toggle"
+        ", XF86AudioMicMute,     exec, swayosd --input-volume mute-toggle"
+
+        # Brighness
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
+      ];
 
       # Risotto
       animations = {
