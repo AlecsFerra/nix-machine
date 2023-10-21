@@ -28,6 +28,8 @@ in {
         ", preferred, auto, 1"
       ];
 
+      general.layout = "master";
+
       misc = {
         vrr = true;
         mouse_move_enables_dpms = true;
@@ -83,6 +85,12 @@ in {
       ];
 
       # Risotto
+      general = {
+        gaps_out = 7;
+        gaps_in = 5;
+        cursor_inactive_timeout = 5;
+      };
+
       animations = {
         enabled = true;
         animation = [
@@ -92,8 +100,9 @@ in {
           "workspaces, 1, 2, default, slide"
         ];
       };
+
       decoration = {
-        rounding = 16;
+        rounding = 5;
           blur = {
           enabled = true;
           size = 10;
