@@ -10,10 +10,11 @@ in
 
     settings = {
       "fade-in" = 1;
+      grace = 5;
     };
   };
 
-  services.swayidle = {
+services.swayidle = {
     enable = true;
     systemdTarget = "graphical-session.target";
     events = [

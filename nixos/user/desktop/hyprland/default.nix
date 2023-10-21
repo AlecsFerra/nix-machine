@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let vimDirections = [
   { key = "l"; shortDir = "r"; resize = "10 0"; }
   { key = "h"; shortDir = "l"; resize = "-10 0"; }
@@ -42,7 +42,7 @@ in {
         "$mod, Q, killactive"
         "$mod, F, fullscreen"
 
-        "$mod, x, exec, swaylock"
+        "$mod, x, exec, ${config.programs.swaylock.package}/bin/swaylock"
 
         "$mod, Return, exec, alacritty"
       ]
