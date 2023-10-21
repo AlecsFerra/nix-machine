@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
     # Brightness keybindings
     brightnessctl
+    # Show
+    swayosd
   ];
 
   # Notifications
