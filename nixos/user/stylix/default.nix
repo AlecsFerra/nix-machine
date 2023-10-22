@@ -33,5 +33,7 @@
 	popups = 12;
       };
     };
+
+    opacity.terminal = 0.8;
   };
 }
