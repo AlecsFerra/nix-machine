@@ -10,6 +10,8 @@ in
       pkgs.eww-wayland
     ];
 
+    programs.eww.package = ewwPackage;
+
     systemd.user.services.eww = {
       Unit = {
         Description = "Eww Daemon";
@@ -22,4 +24,6 @@ in
       Install.WantedBy = ["graphical-session.target"];
     };
   };
+  
+  imports = [ ./eww.nix ];
 }

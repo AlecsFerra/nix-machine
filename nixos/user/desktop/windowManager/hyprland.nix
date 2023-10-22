@@ -26,9 +26,9 @@ in {
       };
 
       statusbar = {
-        workspacesNumber = 10;
         workspaces =  {
-          existing = pkgs.writeShellScriptBin "hyprland-existing"
+          number = 10;
+          occupied = pkgs.writeShellScriptBin "hyprland-occupied"
             ''
               ${getBin hyperlandPackage}/bin/hyprctl workspaces \
               | grep 'workspace' \
@@ -45,6 +45,11 @@ in {
             pkgs.writeShellScriptBin "hyprland-goto"
               ''
                 ${getBin hyperlandPackage}/bin/hyprctl dispatch workspace "$1"
+              '';
+          listen = 
+            pkgs.writeShellScriptBin "hyprland-listen"
+              ''
+                tail -f /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log
               '';
         };
       };

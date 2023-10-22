@@ -43,7 +43,6 @@ in
       };
     };
     
-    statusbar.eww.enable = true;
     background.swaybg.enable = true;
     notifications.mako.enable = true;
     runner.albert.enable = true;
