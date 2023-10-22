@@ -15,8 +15,6 @@ in {
     home.packages = with pkgs; [
       # Brightness keybindings
       brightnessctl
-      # Show 
-      swayosd
     ];
 
     wayland = {
@@ -121,14 +119,14 @@ in {
         # Repeated keybindings
         binde = [
           # Audio
-          ", XF86AudioRaiseVolume, exec, swayosd --output-volume raise"
-          ", XF86AudioLowerVolume, exec, swayosd --output-volume lower"
-          ", XF86AudioMute,        exec, swayosd --output-volume mute-toggle"
-          ", XF86AudioMicMute,     exec, swayosd --input-volume mute-toggle"
+          ", XF86AudioRaiseVolume, exec, ${getExe cfg.audio.increase}"
+          ", XF86AudioLowerVolume, exec, ${getExe cfg.audio.decrease}"
+          ", XF86AudioMute,        exec, ${getExe cfg.audio.mute}"
+          ", XF86AudioMicMute,     exec, ${getExe cfg.audio.muteMic}"
 
           # Brighness
-          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-          ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
+          ", XF86MonBrightnessDown, exec, ${getExe cfg.brightness.decrease}"
+          ", XF86MonBrightnessUp,   exec, ${getExe cfg.brightness.increase}"
         ];
 
         # Risotto
