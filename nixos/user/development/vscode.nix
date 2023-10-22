@@ -31,7 +31,8 @@ in
     ];
 
     userSettings = {
-      "workbench.colorTheme" = "One Dark Pro";
+      "workbench.colorTheme" = "Stylix";
+      "workbench.startupEditor" = "none";
     };
   };
 }
