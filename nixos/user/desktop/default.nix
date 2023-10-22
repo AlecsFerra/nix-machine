@@ -13,13 +13,14 @@ with lib;
   wayland = {
     lock = {
       swaylockidle.enable = true;
-      lockTime = 300;
-      dpmsTime = 600;
+      lock.timeout= 300;
+      dpms.timeout = 600;
     };
 
     windowManager = {
       hyprland.enable = true;
-      runTerminal = "${getBin pkgs.alacritty}/bin/alacritty";
+      terminal = pkgs.writeShellScriptBin "alacritty-run"
+        "${getBin pkgs.alacritty}/bin/alacritty";
     };
     
     statusbar.eww.enable = true;

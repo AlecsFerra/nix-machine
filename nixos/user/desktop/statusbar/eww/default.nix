@@ -8,7 +8,6 @@ in
   config = mkIf cfg.eww.enable {
     home.packages = [
       pkgs.eww-wayland
-      cfg.activeWorkspacePackage
     ];
 
     systemd.user.services.eww = {

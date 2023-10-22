@@ -20,10 +20,13 @@ in {
     ];
 
     wayland = {
-      lock = {
-        runDpmsOn = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms on";
-        runDpmsOff = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms off";
+      lock.dpms = {
+        on = pkgs.writeShellScriptBin "hyprland-dpms-on"
+          "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms on";
+        off = pkgs.writeShellScriptBin "hyprland-dpms-off"
+          "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms off";
       };
+
       statusbar = {
         workspacesNumber = 10;
         workspaces =  {
@@ -83,10 +86,10 @@ in {
           "$mod, Q, killactive"
           "$mod, F, fullscreen"
 
-          "$mod, x, exec, ${cfg.runLock}"
+          "$mod, x, exec, ${getExe cfg.lock}"
 
-          "$mod, Return, exec, ${cfg.runTerminal}"
-          "$mod, d,      exec, ${cfg.runRunner}"
+          "$mod, Return, exec, ${getExe cfg.terminal}"
+          "$mod, d,      exec, ${getExe cfg.runner}"
         ]
         # Move focus
         ++ (builtins.map

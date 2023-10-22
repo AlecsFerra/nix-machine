@@ -6,7 +6,7 @@ let
 in
 {
   config = mkIf cfg.swaylockidle.enable {
-    wayland.windowManager.runLock = "${getExe swaylockPackage}";
+    wayland.windowManager.lock = swaylockPackage;
 
     programs.swaylock = {
       enable = true;
@@ -28,7 +28,7 @@ in
         }
         {
           event = "after-resume";
-          command = "${cfg.runDpmsOn}";
+          command = "${getExe cfg.dpms.on}";
         }
         {
           event = "lock";
@@ -37,12 +37,12 @@ in
       ];
       timeouts = [
         {
-          timeout = cfg.lockTime;
+          timeout = cfg.lock.timeout;
           command = "${swaylockPackage}/bin/swaylock";
         }
         {
-          timeout = cfg.dpmsTime;
-          command = "${cfg.runDpmsOff}";
+          timeout = cfg.dpms.timeout;
+          command = "${getExe cfg.dpms.off}";
         }
       ];
     };

@@ -7,6 +7,7 @@ in
 {
   config = mkIf cfg.albert.enable {
     home.packages = [ albertPackage ];
-    wayland.windowManager.runRunner = "${getBin albertPackage}/bin/albert show";
+    wayland.windowManager.runner = pkgs.writeShellScriptBin "albert-show"
+      "${getBin albertPackage}/bin/albert show";
   };
 }

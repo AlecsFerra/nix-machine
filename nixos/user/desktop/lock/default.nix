@@ -4,26 +4,28 @@ with lib;
   options.wayland.lock = {
     swaylockidle.enable = mkEnableOption "Enable the swaylock swayidle combo";
 
-    lockTime = mkOption {
+    lock.timeout = mkOption {
       type = types.int;
       description = 
         "After how many seconds of inactivity the desktop will be locked";
     };
-    
-    dpmsTime = mkOption {
-      type = types.int;
-      description = 
-        "After how many seconds of inactivity the screen will be turned off";
-    };
+   
+    dpms = {
+     timeout = mkOption {
+        type = types.int;
+        description = 
+          "After how many seconds of inactivity the DPMS will be set to off";
+      }; 
 
-    runDpmsOn = mkOption {
-      type = types.str;
-      description = "Command to turn on the screen";
-    };
+      on = mkOption {
+        type = types.package;
+        description = "Ecexutable package that sets the DPMS on";
+      };
 
-    runDpmsOff = mkOption {
-      type = types.str;
-      description = "Command to turn off the screen";
+      off = mkOption {
+        type = types.package;
+        description = "Ecexutable package that sets the DPMS off";
+      };
     };
   };
 
