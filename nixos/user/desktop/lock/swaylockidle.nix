@@ -28,7 +28,7 @@ in
         }
         {
           event = "after-resume";
-          command = "${cfg.runDpmsOff}";
+          command = "${cfg.runDpmsOn}";
         }
         {
           event = "lock";
@@ -42,7 +42,7 @@ in
         }
         {
           timeout = cfg.dpmsTime;
-          command = "${cfg.runDpmsOn}";
+          command = "${cfg.runDpmsOff}";
         }
       ];
     };
