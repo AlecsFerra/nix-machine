@@ -2,10 +2,7 @@
 with lib;
 {
   imports = [ 
-    ./espanso
-    ./albert
-
-    # Modularized config
+    ./runner
     ./lock
     ./background
     ./windowManager
@@ -21,12 +18,11 @@ with lib;
 
     windowManager = {
       hyprland.enable = true;
-      runRunner = "";
       runTerminal = "${getBin pkgs.alacritty}/bin/alacritty";
     };
 
     background.swaybg.enable = true;
-
     notifications.mako.enable = true;
+    runner.albert.enable = true;
   };
 }
