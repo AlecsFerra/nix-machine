@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 with lib;
 let
-  wmPackage = config.wayland.windowManager.hyprland.package;
   swaylockPackage = pkgs.swaylock-effects;
   cfg = config.wayland.lock;
 in

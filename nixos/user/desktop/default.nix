@@ -4,11 +4,13 @@ with lib;
   imports = [ 
     ./espanso
     ./albert
+
+    # Modularized config
     ./lock
     ./background
     ./windowManager
+    ./notifications
   ];
-  
 
   wayland = {
     lock = {
@@ -24,12 +26,7 @@ with lib;
     };
 
     background.swaybg.enable = true;
-  };
 
-  # Notifications
-  services.mako = {
-    enable = true;
-    anchor = "top-right";
-    defaultTimeout = 3000;
+    notifications.mako.enable = true;
   };
 }
