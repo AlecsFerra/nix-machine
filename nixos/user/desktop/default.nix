@@ -5,13 +5,10 @@ with lib;
     ./espanso
     ./albert
     ./lock
+    ./background
     ./windowManager
   ];
   
-  home.packages = with pkgs; [
-    # Background
-    swaybg
-  ];
 
   wayland = {
     lock = {
@@ -25,18 +22,8 @@ with lib;
       runRunner = "";
       runTerminal = "${getBin pkgs.alacritty}/bin/alacritty";
     };
-  };
 
-  systemd.user.services = {
-    # Set background on startup
-    wallpaper = {
-      Service.ExecStart = 
-        "${pkgs.swaybg}/bin/swaybg -m fill -i ${config.stylix.image}";
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-        PartOf = [ "graphical-session.target" ];
-      };
-    };
+    background.swaybg.enable = true;
   };
 
   # Notifications
