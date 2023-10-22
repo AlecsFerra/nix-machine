@@ -2,7 +2,7 @@
 with lib;
 {
   options.wayland.notifications = {
-    mako.enable = mkEnableOption "Enable the swaylock swayidle combo";
+    mako.enable = mkEnableOption "Enable the mako notification service";
   };
 
   imports = [ ./mako.nix ];
