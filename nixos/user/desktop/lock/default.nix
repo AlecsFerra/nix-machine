@@ -1,45 +1,25 @@
-{ config, pkgs, lib, ... }:
-let
-  wmPackage = config.wayland.windowManager.hyprland.package;
-  swaylockPackage = pkgs.swaylock-effects;
-in
+{ lib, ... }:
+with lib;
 {
-  programs.swaylock = {
-    enable = true;
-    package = pkgs.swaylock-effects;
+  options.wayland.lock = {
+    swaylockidle.enable = mkEnableOption "Enable the swaylock swayidle combo";
 
-    settings = {
-      "fade-in" = 1;
-      grace = 5;
+    lockTime = mkOption {
+      type = types.int;
+    };
+    
+    dpmsTime = mkOption {
+      type = types.int;
+    };
+
+    runDpmsOn = mkOption {
+      type = types.str;
+    };
+
+    runDpmsOff = mkOption {
+      type = types.str;
     };
   };
 
-services.swayidle = {
-    enable = true;
-    systemdTarget = "graphical-session.target";
-    events = [
-      {
-        event = "before-sleep";
-        command = "${swaylockPackage}/bin/swaylock";
-      }
-      {
-        event = "after-resume";
-        command = "${wmPackage}/bin/hyprctl dispatch dpms on";
-      }
-      {
-        event = "lock";
-        command = "${swaylockPackage}/bin/swaylock";
-      }
-    ];
-    timeouts = [
-      {
-        timeout = 300;
-        command = "${swaylockPackage}/bin/swaylock";
-      }
-      {
-        timeout = 600;
-        command = "${wmPackage}/bin/hyprctl dispatch dpms off";
-      }
-    ];
-  };
+  imports = [ ./swaylockidle.nix ];
 }

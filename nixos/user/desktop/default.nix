@@ -1,20 +1,31 @@
 { config, pkgs, lib, ... }:
+with lib;
 {
   imports = [ 
     ./espanso
-    ./hyprland
     ./albert
     ./lock
+    ./windowManager
   ];
   
   home.packages = with pkgs; [
-    # Brightness keybindings
-    brightnessctl
-    # Show
-    swayosd
     # Background
     swaybg
   ];
+
+  wayland = {
+    lock = {
+      swaylockidle.enable = true;
+      lockTime = 300;
+      dpmsTime = 600;
+    };
+
+    windowManager = {
+      hyprland.enable = true;
+      runRunner = "";
+      runTerminal = "${getBin pkgs.alacritty}/bin/alacritty";
+    };
+  };
 
   systemd.user.services = {
     # Set background on startup
