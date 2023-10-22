@@ -52,6 +52,7 @@ in
 	qbittorrent
 	scrcpy
 	tree
+	acpi
       ];
 
       # The same as the nix-os state version
