@@ -7,6 +7,7 @@ with lib;
     ./background
     ./windowManager
     ./notifications
+    ./statusbar
   ];
 
   wayland = {
@@ -20,7 +21,8 @@ with lib;
       hyprland.enable = true;
       runTerminal = "${getBin pkgs.alacritty}/bin/alacritty";
     };
-
+    
+    statusbar.eww.enable = true;
     background.swaybg.enable = true;
     notifications.mako.enable = true;
     runner.albert.enable = true;

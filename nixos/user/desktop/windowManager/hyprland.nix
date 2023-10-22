@@ -12,7 +12,6 @@ let
 in {
   config = mkIf cfg.hyprland.enable {
 
-    
     home.packages = with pkgs; [
       # Brightness keybindings
       brightnessctl
@@ -20,9 +19,34 @@ in {
       swayosd
     ];
 
-    wayland.lock = {
-      runDpmsOn = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms on";
-      runDpmsOff = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms off";
+    wayland = {
+      lock = {
+        runDpmsOn = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms on";
+        runDpmsOff = "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms off";
+      };
+      statusbar = {
+        workspacesNumber = 10;
+        workspaces =  {
+          existing = pkgs.writeShellScriptBin "hyprland-existing"
+            ''
+              ${getBin hyperlandPackage}/bin/hyprctl workspaces \
+              | grep 'workspace' \
+              | grep -oP '\(\K[^)]+'
+            '';
+          active = 
+            pkgs.writeShellScriptBin "hyprland-active"
+              ''
+                ${getBin hyperlandPackage}/bin/hyprctl monitors \
+                | grep 'active workspace' \
+                | grep -oP '\(\K[^)]+'
+              '';
+          goto = 
+            pkgs.writeShellScriptBin "hyprland-goto"
+              ''
+                ${getBin hyperlandPackage}/bin/hyprctl dispatch workspace "$1"
+              '';
+        };
+      };
     };
 
     wayland.windowManager.hyprland = {
