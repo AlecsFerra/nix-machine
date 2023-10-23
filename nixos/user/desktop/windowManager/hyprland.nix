@@ -12,10 +12,10 @@ let
 in {
   config = mkIf cfg.hyprland.enable {
 
-    home.packages = with pkgs; [
-      # Brightness keybindings
-      brightnessctl
-    ];
+    # If someaone uses sway idle we force to use the correct hyprland
+    # session target
+    systemd.user.services.swayidle.Install.WantedBy = 
+      lib.mkForce ["hyprland-session.target"];
 
     wayland = {
       lock.dpms = {
@@ -64,7 +64,7 @@ in {
             natural_scroll = true;
           };
         };
-
+        
         gestures = {
           workspace_swipe = true;
           workspace_swipe_forever = true;
@@ -80,8 +80,9 @@ in {
         misc = {
           vrr = true;
           mouse_move_enables_dpms = true;
-          key_press_enables_dpms = true;
+          key_press_enables_dpms = false;
           enable_swallow = true;
+          swallow_regex = "^(Alacritty|kitty|footclient)$";
         };
 
         "$mod" = "SUPER";
