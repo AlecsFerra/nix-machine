@@ -11,7 +11,6 @@
     plugins.lualine.enable = true;
     plugins.indent-blankline = {
       enable = true;
-      useTreesitter = true;
       showTrailingBlanklineIndent = false;
     };
   };
