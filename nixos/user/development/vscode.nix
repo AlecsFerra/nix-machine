@@ -22,6 +22,7 @@ in
       eamodio.gitlens
       arrterian.nix-env-selector
       zhuangtongfa.material-theme
+      jnoortheen.nix-ide
       (fromStore {
 	name = "agda-mode";
 	publisher = "banacorn";
@@ -33,6 +34,8 @@ in
     userSettings = {
       "workbench.colorTheme" = "Stylix";
       "workbench.startupEditor" = "none";
+      "keyboard.dispatch" = "keyCode";
+      "vim.useSystemClipboard" = true;
     };
   };
 }
