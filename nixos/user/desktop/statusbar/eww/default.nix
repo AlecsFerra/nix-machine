@@ -18,7 +18,9 @@ in
         PartOf = ["graphical-session.target"];
       };
       Service = {
-        ExecStart = "${getExe ewwPackage} daemon --no-daemonize";
+        ExecStart = ''
+          ${getExe ewwPackage} daemon --no-daemonize
+        '';
         Restart = "on-failure";
       };
       Install.WantedBy = ["graphical-session.target"];

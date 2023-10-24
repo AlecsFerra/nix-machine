@@ -5,67 +5,36 @@ let
 in
 {
   config = mkIf cfg.eww.enable {
-    
     xdg.configFile = {
-      "eww/workspaces.sh" = {
-        executable = true;
-        text = ''
-          #!/usr/bin/env bash
-          print() {
-            echo -n " $1 "
-          }
-
-          print_ws() {
-            active=(`${getExe cfg.workspaces.active}`)
-            occupied=(`${getExe cfg.workspaces.occupied}`)
-            
-            print '(box :class "workspace-module" :orientation "h"'
-            print ':spacing 1 :space-evenly "true"'
-            for i in {1..${toString cfg.workspaces.number}}; do
-              print '(button :class'
-              if [[ ''${active[@]} =~ $i ]]; then
-                print '"active"'
-              elif [[ ''${occupied[@]} =~ $i ]]; then
-                print '"occupied"'
-              else
-                print '"empty"'
-              fi
-              print '"")'
-            done
-            print ')'
-            echo ""
-          }
-
-          print_ws
-          ${getExe cfg.workspaces.listen} | while read -r; do
-            print_ws
-          done
-        '';
-      };
-      
       "eww/eww.yuck".text = ''
-        (deflisten workspaces-data "~/.config/eww/workspaces.sh")
-        (defwidget workspaces []
-          (literal :content workspaces-data))
+        (include "workspaces.yuck")
+        (include "system.yuck")
 
         (defwidget left []
           (box
             :space-evenly false
             :halign "start"
-            (button "pippo")
+            (label :class "distro" :text "")
             (workspaces)))
-        
+
         (defwidget right []
           (box
+            :class "right"
             :space-evenly false
             :halign "end"
-            ))
+            (battery)))
         
+        (defpoll time
+          :interval "10s"
+          "${getBin pkgs.coreutils}/bin/date +'%a %d %b %H:%M'")
+        (defwidget clock []
+          (box :class "clock"
+            time))
         (defwidget center []
           (box
             :space-evenly false
             :halign "center"
-            ))
+            (clock)))
 
         (defwidget bar-box []
           (centerbox
@@ -88,15 +57,31 @@ in
           (bar-box))
       '';
 
-      "eww/eww.scss".text = ''
+      "eww/eww.scss".text = with config.lib.stylix.colors; ''
+        @import "workspaces"
+        @import "system"
+
         * {
-          color: white;
+          font-family: "Fira Code";
+          border-radius: 0;
         }
 
-        .workspace-module {
-          background-color: pink;
+        .distro {
+          background-color: #${base0D};
+          color: white;
+          padding: 0 18px 0 10px;
+          font-size: 22px;
+        }
+
+        .right {
+          padding-right: 12px;
         }
       '';
     };
   };
+
+  imports = [
+    ./workspaces.nix
+    ./system.nix
+  ];
 }
