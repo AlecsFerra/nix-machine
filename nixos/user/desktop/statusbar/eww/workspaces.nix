@@ -16,9 +16,9 @@ let
         print ':spacing 1 :space-evenly "true"'
         for i in {1..${toString cfg.workspaces.number}}; do
           print '(button :class'
-          if [[ ''${active[@]} =~ $i ]]; then
+          if [[  " ''${active[*]} " =~ " ''${i} " ]]; then
             print '"active icon-shift"'
-          elif [[ ''${occupied[@]} =~ $i ]]; then
+          elif [[ " ''${occupied[*]} " =~ " ''${i} " ]]; then
             print '"occupied icon-shift"'
           else
             print '"empty icon-shift"'

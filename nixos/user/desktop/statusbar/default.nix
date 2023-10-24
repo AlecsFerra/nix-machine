@@ -5,7 +5,7 @@ with lib;
     eww.enable = mkEnableOption "Enable the eww statusbar";
 
     workspaces = {
-      
+
       number = mkOption {
         type = types.int;
         description = "The total number of workspaces";
@@ -13,13 +13,13 @@ with lib;
 
       active = mkOption {
         type = types.package;
-        description = 
+        description =
           "Command that returns the current active workspaces";
       };
 
       occupied = mkOption {
         type = types.package;
-        description = 
+        description =
           "Command that returns a new-line separated list of occupied workspaces";
       };
 
@@ -30,7 +30,7 @@ with lib;
 
       listen = mkOption {
         type = types.package;
-        description = 
+        description =
           "Command that returns a new-line each time the workspaces are updated";
       };
     };
