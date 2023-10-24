@@ -22,6 +22,7 @@ in
             :class "right"
             :space-evenly false
             :halign "end"
+            (network)
             (battery)))
         
         (defpoll time
