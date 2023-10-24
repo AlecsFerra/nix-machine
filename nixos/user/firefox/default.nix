@@ -53,6 +53,7 @@
 
       settings = {
         "browser.startup.homepage" = "https://calendar.google.com/calendar/u/0/r";
+        "media.ffmpeg.vaapi.enabled" = true;
       };
     };
   };
