@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 with lib;
-let 
+let
   vimDirections = [
     { key = "l"; shortDir = "r"; resize = "10 0"; }
     { key = "h"; shortDir = "l"; resize = "-10 0"; }
@@ -9,49 +9,53 @@ let
   ];
   cfg = config.wayland.windowManager;
   hyperlandPackage = cfg.hyprland.package;
-in {
+  hyprctl = "${getBin hyperlandPackage}/bin/hyprctl";
+in
+{
   config = mkIf cfg.hyprland.enable {
 
     # If someaone uses sway idle we force to use the correct hyprland
     # session target
-    systemd.user.services.swayidle.Install.WantedBy = 
-      lib.mkForce ["hyprland-session.target"];
+    systemd.user.services.swayidle.Install.WantedBy =
+      lib.mkForce [ "hyprland-session.target" ];
 
     wayland = {
       lock.dpms = {
         on = pkgs.writeShellScriptBin "hyprland-dpms-on"
-          "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms on";
+          "${hyprctl} dispatch dpms on";
         off = pkgs.writeShellScriptBin "hyprland-dpms-off"
-          "${getBin hyperlandPackage}/bin/hyprctl dispatch dpms off";
+          "${hyprctl} dispatch dpms off";
       };
 
       statusbar = {
-        workspaces =  {
-          number = 10;
-          occupied = pkgs.writeShellScriptBin "hyprland-occupied"
-            ''
-              ${getBin hyperlandPackage}/bin/hyprctl workspaces \
-              | grep 'workspace' \
-              | grep -oP '\(\K[^)]+'
-            '';
-          active = 
-            pkgs.writeShellScriptBin "hyprland-active"
+        workspaces =
+          let
+            grep = "${getExe pkgs.gnugrep}";
+            tail = "${getBin pkgs.coreutils}/bin/tail";
+          in
+          {
+            number = 10;
+            occupied = pkgs.writeShellScriptBin "hyprland-occupied"
+              ''
+                ${hyprctl} workspaces \
+                | ${grep} 'workspace' \
+                | ${grep} -oP '\(\K[^)]+'
+              '';
+            active = pkgs.writeShellScriptBin "hyprland-active"
               ''
                 ${getBin hyperlandPackage}/bin/hyprctl monitors \
-                | grep 'active workspace' \
-                | grep -oP '\(\K[^)]+'
+                | ${grep} 'active workspace' \
+                | ${grep} -oP '\(\K[^)]+'
               '';
-          goto = 
-            pkgs.writeShellScriptBin "hyprland-goto"
+            goto = pkgs.writeShellScriptBin "hyprland-goto"
               ''
-                ${getBin hyperlandPackage}/bin/hyprctl dispatch workspace "$1"
+                ${hyprctl} dispatch workspace "$1"
               '';
-          listen = 
-            pkgs.writeShellScriptBin "hyprland-listen"
+            listen = pkgs.writeShellScriptBin "hyprland-listen"
               ''
-                tail -f /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log
+                ${tail} -f /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log
               '';
-        };
+          };
       };
     };
 
@@ -64,7 +68,7 @@ in {
             natural_scroll = true;
           };
         };
-        
+
         gestures = {
           workspace_swipe = true;
           workspace_swipe_forever = true;
@@ -107,18 +111,22 @@ in {
         )
         # Switch to workspace
         ++ (builtins.genList
-          (it: let
-            key = builtins.toString it;
-            ws_no = builtins.toString (if it == 0 then 10 else it);
-            in "$mod, ${key}, workspace, ${ws_no}")
+          (it:
+            let
+              key = builtins.toString it;
+              ws_no = builtins.toString (if it == 0 then 10 else it);
+            in
+            "$mod, ${key}, workspace, ${ws_no}")
           10
         )
         # Move workspace
         ++ (builtins.genList
-          (it: let
-            key = builtins.toString it;
-            ws_no = builtins.toString (if it == 0 then 10 else it);
-            in "$mod SHIFT, ${key}, movetoworkspace, ${ws_no}")
+          (it:
+            let
+              key = builtins.toString it;
+              ws_no = builtins.toString (if it == 0 then 10 else it);
+            in
+            "$mod SHIFT, ${key}, movetoworkspace, ${ws_no}")
           10
         );
 
@@ -154,7 +162,7 @@ in {
 
         decoration = {
           rounding = 5;
-            blur = {
+          blur = {
             enabled = true;
             size = 10;
             passes = 3;
@@ -175,15 +183,15 @@ in {
       extraConfig = ''
         bind = $mod, R, submap, resize
         submap = resize
-        '' +
-        (builtins.concatStringsSep 
-          "\n"
-          (builtins.map
-            (it: "binde = , ${it.key}, resizeactive, ${it.resize}")
-            vimDirections
-          )
+      '' +
+      (builtins.concatStringsSep
+        "\n"
+        (builtins.map
+          (it: "binde = , ${it.key}, resizeactive, ${it.resize}")
+          vimDirections
         )
-        + "\n" + ''
+      )
+      + "\n" + ''
         bind = , escape, submap, reset
         submap = reset
 
