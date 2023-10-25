@@ -33,8 +33,8 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    xdg.configFile."ulauncher-/settings.json".source = ./settings.json;
-    xdg.configFile."ulauncher-/extensions.json".source = ./extensions.json;
+    xdg.configFile."ulauncher/settings.json".source = ./settings.json;
+    xdg.configFile."ulauncher/extensions.json".source = ./extensions.json;
 
   };
 }
