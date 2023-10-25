@@ -178,6 +178,16 @@ in
           shadow_range = 20;
           shadow_render_power = 3;
         };
+
+        windowrulev2 = let
+          launcher = (it : [
+            "noblur,class:(${it})"
+            "noborder,class:(${it})"
+            "pin,class:(${it})"
+            "noshadow,class:(${it})"
+            "animation slide,class:(${it})"
+          ]);
+        in launcher "ulauncher";
       };
 
       extraConfig = ''

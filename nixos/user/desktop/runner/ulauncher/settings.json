@@ -1,0 +1,11 @@
+{
+  "clear-previous-query": true,
+  "disable-desktop-filters": false,
+  "grab-mouse-pointer": true,
+  "hotkey-show-app": "<Primary>d",
+  "render-on-screen": "mouse-pointer-monitor",
+  "show-indicator-icon": true,
+  "show-recent-apps": "5",
+  "terminal-command": "",
+  "theme-name": "dark"
+}

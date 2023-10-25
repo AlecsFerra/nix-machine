@@ -46,6 +46,6 @@ in
     background.swaybg.enable = true;
     statusbar.eww.enable = true;
     notifications.mako.enable = true;
-    runner.albert.enable = true;
+    runner.ulauncher.enable = true;
   };
 }

@@ -2,8 +2,10 @@
 with lib;
 {
   options.wayland.runner = {
-    albert.enable = mkEnableOption "Use alber as the system runner";
+    ulauncher.enable = mkEnableOption "Use ulancher as the system runner";
   };
 
-  imports = [ ./albert.nix ];
+  imports = [ 
+    ./ulauncher
+  ];
 }

@@ -1,0 +1,37 @@
+{
+  "com.github.ulauncher.ulauncher-emoji": {
+    "id": "com.github.ulauncher.ulauncher-emoji",
+    "url": "https://github.com/Ulauncher/ulauncher-emoji",
+    "updated_at": "2023-10-25T20:38:20.906831",
+    "last_commit": "4c6af50d1c9a24d5aad2c597634ff0c634972a5c",
+    "last_commit_time": "2021-08-08T19:19:59"
+  },
+  "com.github.manahter.ulauncher-translate": {
+    "id": "com.github.manahter.ulauncher-translate",
+    "url": "https://github.com/manahter/ulauncher-translate",
+    "updated_at": "2023-10-25T20:43:42.415962",
+    "last_commit": "f81d32c583c7e3542bdba655e991a56e6d9a2c28",
+    "last_commit_time": "2021-04-09T18:12:40"
+  },
+  "com.github.kbialek.ulauncher-bitwarden": {
+    "id": "com.github.kbialek.ulauncher-bitwarden",
+    "url": "https://github.com/kbialek/ulauncher-bitwarden",
+    "updated_at": "2023-10-25T20:45:19.390822",
+    "last_commit": "e5c25ebc24142f064eaebb29f6e473ded6d6b315",
+    "last_commit_time": "2022-10-19T06:09:55"
+  },
+  "com.github.hippo-o-matic.ulauncher-qalc": {
+    "id": "com.github.hippo-o-matic.ulauncher-qalc",
+    "url": "https://github.com/hippo-o-matic/ulauncher-qalc",
+    "updated_at": "2023-10-25T22:51:38.441474",
+    "last_commit": "45882831f57c265ee3b4bf47cdb862379d47a89a",
+    "last_commit_time": "2021-03-03T03:33:36"
+  },
+  "com.github.isacikgoz.ukill": {
+    "id": "com.github.isacikgoz.ukill",
+    "url": "https://github.com/isacikgoz/ukill",
+    "updated_at": "2023-10-25T23:03:47.802888",
+    "last_commit": "bc50d9f41d46b6813a5aeebddd15734dcdb9d8db",
+    "last_commit_time": "2019-05-28T18:30:00"
+  }
+}
