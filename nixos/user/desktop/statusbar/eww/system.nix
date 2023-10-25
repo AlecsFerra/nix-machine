@@ -101,8 +101,8 @@ in
 
         .battery-bolt {
           padding-right: 0px;
-          font-size: 16px;
-          color: #${base04};
+          font-size: 23px;
+          color: #${base0A};
         }
 
         .battery .low {
