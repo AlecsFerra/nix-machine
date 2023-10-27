@@ -43,7 +43,7 @@ in
       home.packages = with pkgs; [
         telegram-desktop
         bitwarden
-	htop
+	btop
 	neofetch
 	zathura
 	python3
@@ -53,6 +53,7 @@ in
 	scrcpy
 	tree
 	acpi
+	mpv
       ];
 
       # The same as the nix-os state version
