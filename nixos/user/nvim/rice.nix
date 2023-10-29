@@ -11,7 +11,7 @@
     plugins.lualine.enable = true;
     plugins.indent-blankline = {
       enable = true;
-      whitespace.removeBlanklineTrail = false;
+      # whitespace.removeBlanklineTrail = false;
     };
   };
 }
