@@ -87,6 +87,7 @@ in
           key_press_enables_dpms = false;
           enable_swallow = true;
           swallow_regex = "^(Alacritty|kitty|footclient)$";
+          disable_hyprland_logo = true;
         };
 
         "$mod" = "SUPER";
