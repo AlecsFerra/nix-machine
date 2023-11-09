@@ -153,7 +153,7 @@
 
   # Auto upgrade
   system.autoUpgrade = {
-    enable = true;
+    enable = false;
     channel = "https://nixos.org/channels/nixos-unstable";
     dates = "04:00";
   };
