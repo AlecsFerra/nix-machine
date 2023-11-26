@@ -6,7 +6,7 @@
     plugins.gitsigns = {
       enable = true;
       currentLineBlame = true;
-      onAttach.function = ''
+      onAttach.function = /* lua */ ''
         function(bufnr)
           vim.keymap.set('n', '<leader>gp',
             require('gitsigns').prev_hunk, { 

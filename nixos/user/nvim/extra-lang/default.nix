@@ -1,4 +1,7 @@
 { pkgs, ... }:
 {
-  imports = [ ./agda.nix ];
+  imports = [ 
+    ./agda.nix 
+    ./nix.nix
+  ];
 }

@@ -1,6 +1,7 @@
 { pkgs, ... }:
 let
-  telescopeBuiltin = call: 
+  telescopeBuiltin = call:
+    # lua
     "require('telescope.builtin').${call}";
 in
 {
@@ -14,17 +15,34 @@ in
     extraPlugins = with pkgs.vimPlugins; [
       vim-sleuth
     ];
-
+    
+    # Comment and decomment blocks
+    # Select a block and then *gc*
     plugins.comment-nvim.enable = true;
+
+    # Menu that shows key combinations
     plugins.which-key.enable = true;
-
-    plugins.illuminate.enable = true;
-
+    
+    # Use :SessionSave to save the session in the current directory
+    # The rest of options is under :Save
     plugins.auto-session = {
       enable = true;
       extraOptions."auto_save_enabled" = true;
     };
     
+    # Move in undo history
+    # <leader> u
+    plugins.undotree.enable = true;
+
+    # Delete buffers safely
+    # <leader> q
+    plugins.vim-bbye.enable = true;
+
+    # Suggestion in :, / and ? menu
+    plugins.wilder.enable = true;
+    
+    # Better syntax highlighting and selection
+    # ctrl space to start selecion
     plugins.treesitter = {
       enable = true;
       indent = true;
@@ -40,8 +58,18 @@ in
       };
     };
 
-    plugins.undotree.enable = true;
-
+    # Pretty menus
+    # Find files:
+    #   - old         <leader> ?
+    #   - buffer      <leader> <space>
+    #   - git files   <leader> gf
+    #   - local files <leader> sf
+    # Search:
+    #   - buffers     <leader> /
+    #   - help        <leader> sh
+    #   - grep        <leader> sg
+    #   - diagnostics <leader> sd
+    # Resume search with <leader> sr
     plugins.telescope = {
       enable = true;
       extensions.fzf-native.enable = true;
@@ -79,16 +107,16 @@ in
         mode = "n";
         key = "<leader>/";
         lua = true;
-        action = ''
-          function()
-            require('telescope.builtin')
-              .current_buffer_fuzzy_find(require('telescope.themes')
-              .get_dropdown {
-                winblend = 10,
-                previewer = false,
-              })
-          end
-        '';
+        action = /* lua */ ''
+            function()
+              require('telescope.builtin')
+                .current_buffer_fuzzy_find(require('telescope.themes')
+                .get_dropdown {
+                  winblend = 10,
+                  previewer = false,
+                })
+            end
+          '';
         options.desc = "[/] Fuzzily search in current buffer";
       }
       {
@@ -139,6 +167,13 @@ in
         lua = true;
         action = telescopeBuiltin "resume";
         options.desc = "[S]earch [R]esume";
+      }
+      # vim-bbye
+      {
+        mode = "n";
+        key = "<leader>q";
+        action = ":Bdelete";
+        options.desc = "[Q]uit buffer";
       }
     ];
   };

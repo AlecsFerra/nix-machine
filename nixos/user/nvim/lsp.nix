@@ -10,28 +10,28 @@
         mode = "n";
         key = "[d";
         lua = true;
-        action = "vim.diagnostic.goto_prev";
+        action = /* lua */ "vim.diagnostic.goto_prev";
         options.desc = "Go to previous diagnostic message";
       }
       {
         mode = "n";
         key = "]d";
         lua = true;
-        action = "vim.diagnostic.goto_next";
+        action = /* lua */ "vim.diagnostic.goto_next";
         options.desc = "Go to next diagnostic message";
       }
       {
         mode = "n";
         key = "<leader>e";
         lua = true;
-        action = "vim.diagnostic.open_float";
+        action = /* lua */ "vim.diagnostic.open_float";
         options.desc = "Open floating diagnostic message";
       }
       {
         mode = "n";
         key = "<leader>q";
         lua = true;
-        action = "vim.diagnostic.setloclist";
+        action = /* lua */ "vim.diagnostic.setloclist";
         options.desc = "Open diagnostic list";
       }
     ];
@@ -43,7 +43,7 @@
     plugins.lsp = {
       enable = true;
 
-      onAttach = ''
+      onAttach = /* lua */ ''
         local nmap = function(keys, func, desc)
           if desc then
             desc = 'LSP: ' .. desc
@@ -108,9 +108,10 @@
         )
       '';
 
-      capabilities = ''
+      capabilities = /* lua */ ''
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+        capabilities = require('cmp_nvim_lsp')
+                        .default_capabilities(capabilities)
       '';
     };
 
@@ -132,18 +133,18 @@
     plugins.nvim-cmp = {
       enable = true;
       mapping = {
-        "<C-n>" = "cmp.mapping.select_next_item()";
-        "<C-p>" = "cmp.mapping.select_prev_item()";
-        "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-        "<C-f>" = "cmp.mapping.scroll_docs(4)";
-        "<C-Space>" = "cmp.mapping.complete {}";
-        "<CR>" = ''
+        "<C-n>" = /* lua */ "cmp.mapping.select_next_item()";
+        "<C-p>" = /* lua */ "cmp.mapping.select_prev_item()";
+        "<C-d>" = /* lua */ "cmp.mapping.scroll_docs(-4)";
+        "<C-f>" = /* lua */ "cmp.mapping.scroll_docs(4)";
+        "<C-Space>" = /* lua */ "cmp.mapping.complete {}";
+        "<CR>" = /* lua */ ''
           cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
           }
         '';
-        "<Tab>" = ''
+        "<Tab>" = /* lua */ ''
           cmp.mapping(
             function(fallback)
               local luasnip = require 'luasnip'
@@ -158,7 +159,7 @@
             { 'i', 's' }
           )
         '';
-        "<S-Tab>" = ''
+        "<S-Tab>" = /* lua */ ''
           cmp.mapping(
             function(fallback)
               local luasnip = require 'luasnip'
