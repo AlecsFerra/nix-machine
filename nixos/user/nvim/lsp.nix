@@ -118,7 +118,11 @@
     plugins.lsp.servers = {
       nixd.enable = true;
       clangd.enable = true;
-      rust-analyzer.enable = true;
+      rust-analyzer = {
+        enable = true;
+        installRustc = false;
+        installCargo = false;
+      };
       pyright.enable = true;
       hls.enable = true;
       julials.enable = true;

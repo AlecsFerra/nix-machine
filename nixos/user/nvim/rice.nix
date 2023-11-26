@@ -7,11 +7,9 @@
 
     #colorschemes.one.enable = true;
     colorschemes.onedark.enable = true;
-
+    plugins.rainbow-delimiters.enable = true;
+    
     plugins.lualine.enable = true;
-    plugins.indent-blankline = {
-      enable = true;
-      # whitespace.removeBlanklineTrail = false;
-    };
+    plugins.bufferline.enable = true;
   };
 }
