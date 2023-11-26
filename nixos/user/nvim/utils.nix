@@ -1,8 +1,6 @@
 { pkgs, ... }:
 let
-  telescopeBuiltin = call:
-    # lua
-    "require('telescope.builtin').${call}";
+  telescopeBuiltin = call: /* lua */ "require('telescope.builtin').${call}";
 in
 {
   home.packages = with pkgs; [
@@ -171,9 +169,9 @@ in
       # vim-bbye
       {
         mode = "n";
-        key = "<leader>q";
-        action = ":Bdelete";
-        options.desc = "[Q]uit buffer";
+        key = "<leader>bc";
+        action = ":Bdelete<CR>";
+        options.desc = "[B]uffer [C]lose";
       }
     ];
   };
