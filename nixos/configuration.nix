@@ -142,6 +142,7 @@
     killall
     file
     patchelf
+    steamPackages.steam-fhsenv-without-steam.run
   ];
 
   programs.neovim = {
