@@ -4,8 +4,8 @@ let
   stylix = pkgs.fetchFromGitHub {
       owner = "danth";
       repo = "stylix";
-      rev = "c3c9f4784b4f08f6676340126858d936edbce1fa";
-      sha256 = "sha256-oJGESNjJ/6o6tfuUavBZ7go4Oun7g9YKv7OqaQaY/80=";
+      rev = "8b3f61727f3b86c27096c3c014ae602aa40670ba";
+      hash = "sha256-j1Isg4ln4bfgSGuETvYPzEdEIRc/tBPpLqXa+bfvBf0=";
   };
 in
 {
