@@ -78,5 +78,10 @@ in
         options.desc = "[M]ove current line up";
       }
     ];
+    
+    # Exit from terminal mode with esc
+    extraConfigLua = ''
+      vim.keymap.set('t', '<esc>', '<C-\\><C-N>', { silent = true })
+    '';
   };
 }

@@ -28,6 +28,15 @@ in
       extraOptions."auto_save_enabled" = true;
     };
     
+    # Floating terminal
+    # <leader> t
+    plugins.floaterm = {
+      enable = true;
+      wintype = "split";
+      height = 10;
+      keymaps.toggle = "<leader>t";
+    };
+    
     # Move in undo history
     # <leader> u
     plugins.undotree.enable = true;

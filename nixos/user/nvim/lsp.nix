@@ -37,8 +37,13 @@
     ];
 
     plugins.fidget.enable = true;
-    plugins.nvim-lightbulb.enable = true;
     plugins.nvim-autopairs.enable = true;
+
+
+    plugins.nvim-lightbulb = {
+      enable = true;
+      virtualText.enabled = true;
+    };
 
     plugins.lsp = {
       enable = true;
@@ -106,6 +111,16 @@
           end, 
           { desc = 'Format current buffer with LSP' }
         )
+        
+        -- Code lenses refresh
+        if client.supports_method("textDocument/codeLens") then
+          nmap('<leader>cl', vim.lsp.codelens.run, '[C]ode [L]ense')
+          vim.api.nvim_create_autocmd({ 'TextChanged', 'InsertLeave' }, {
+            buffer = bufnr,
+            callback = vim.lsp.codelens.refresh,
+          })
+          vim.api.nvim_exec_autocmds('User', { pattern = 'LspAttached' })
+        end
       '';
 
       capabilities = /* lua */ ''
@@ -125,7 +140,6 @@
         installCargo = false;
       };
       pyright.enable = true;
-      hls.enable = true;
       julials.enable = true;
     };
 
