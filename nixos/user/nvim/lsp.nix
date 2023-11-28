@@ -45,6 +45,19 @@
       virtualText.enabled = true;
     };
 
+    # Servers
+    plugins.lsp.servers = {
+      clangd.enable = true;
+      rust-analyzer = {
+        enable = true;
+        installRustc = false;
+        installCargo = false;
+      };
+      pyright.enable = true;
+      julials.enable = true;
+    };
+
+
     plugins.lsp = {
       enable = true;
 
@@ -128,19 +141,6 @@
         capabilities = require('cmp_nvim_lsp')
                         .default_capabilities(capabilities)
       '';
-    };
-
-    # Servers
-    plugins.lsp.servers = {
-      nixd.enable = true;
-      clangd.enable = true;
-      rust-analyzer = {
-        enable = true;
-        installRustc = false;
-        installCargo = false;
-      };
-      pyright.enable = true;
-      julials.enable = true;
     };
 
     plugins.luasnip.enable = true;
