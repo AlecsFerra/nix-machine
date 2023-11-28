@@ -10,9 +10,14 @@ in
   ];
   
   programs.nixvim = {
-    extraPlugins = with pkgs.vimPlugins; [
-      vim-sleuth
-    ];
+
+    plugins.packer = {
+      enable = true;
+      plugins = [
+        # Autoamtically  adjust tab size etc.
+        "tpope/vim-sleuth"
+      ];
+    };
     
     # Comment and decomment blocks
     # Select a block and then *gc*

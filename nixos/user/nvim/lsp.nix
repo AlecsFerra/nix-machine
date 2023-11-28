@@ -39,12 +39,6 @@
     plugins.fidget.enable = true;
     plugins.nvim-autopairs.enable = true;
 
-
-    plugins.nvim-lightbulb = {
-      enable = true;
-      virtualText.enabled = true;
-    };
-
     # Servers
     plugins.lsp.servers = {
       clangd.enable = true;
@@ -124,7 +118,7 @@
           end, 
           { desc = 'Format current buffer with LSP' }
         )
-        
+
         -- Code lenses refresh
         if client.supports_method("textDocument/codeLens") then
           nmap('<leader>cl', vim.lsp.codelens.run, '[C]ode [L]ense')
