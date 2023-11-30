@@ -77,11 +77,12 @@ in
         action = "<Esc>:m .-2<CR>";
         options.desc = "[M]ove current line up";
       }
+      {
+        mode = "t";
+        key = "<Esc>";
+        action = "<C-\\><C-N>";
+        options.desc = "[M]ove current line up";
+      }
     ];
-    
-    # Exit from terminal mode with esc
-    extraConfigLua = ''
-      vim.keymap.set('t', '<esc>', '<C-\\><C-N>', { silent = true })
-    '';
   };
 }
