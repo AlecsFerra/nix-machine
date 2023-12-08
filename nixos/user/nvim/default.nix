@@ -57,32 +57,47 @@ in
         mode = "n";
         key = "gt";
         action = ":bnext<CR>";
-        options.desc = "[G]oto nex[T] buffer";
+        options = {
+          desc = "[G]oto nex[T] buffer";
+          silent = true;
+        };
       }
       {
         mode = "n";
         key = "gT";
         action = ":bprevious<CR>";
-        options.desc = "[G]oto previus buffer";
+        options = {
+          desc = "[G]oto previus buffer";
+          silent = true;
+        };
       }
       {
         mode = "n";
         key = "M";
         action = "<Esc>:m .+1<CR>";
-        options.desc = "[M]ove current line down";
+        options = {
+          desc = "[M]ove current line down";
+          silent = true;
+        };
       }
       {
         mode = "n";
         key = "m";
         action = "<Esc>:m .-2<CR>";
-        options.desc = "[M]ove current line up";
+        options = {
+          desc = "[M]ove current line up";
+          silent = true;
+        };
       }
       {
         mode = "t";
         key = "<Esc>";
         action = "<C-\\><C-N>";
-        options.desc = "[M]ove current line up";
+        options = {
+          silent = true;
+        };
       }
     ];
+    
   };
 }

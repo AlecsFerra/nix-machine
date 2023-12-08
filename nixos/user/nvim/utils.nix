@@ -14,8 +14,12 @@ in
     plugins.packer = {
       enable = true;
       plugins = [
-        # Autoamtically  adjust tab size etc.
+        # Autoamtically  adjust tab size etc
         "tpope/vim-sleuth"
+        # Enhanced increment/decrement
+        "monaqa/dial.nvim"
+        # Show f-like command hint
+        "unblevable/quick-scope"
       ];
     };
     
@@ -47,11 +51,16 @@ in
     plugins.undotree.enable = true;
 
     # Delete buffers safely
-    # <leader> q
+    # <leader> b c
     plugins.vim-bbye.enable = true;
 
     # Suggestion in :, / and ? menu
     plugins.wilder.enable = true;
+
+    # Move around with s
+    plugins.leap = {
+      enable = true;
+    };
     
     # Better syntax highlighting and selection
     # ctrl space to start selecion
@@ -188,5 +197,63 @@ in
         options.desc = "[B]uffer [C]lose";
       }
     ];
+
+    extraConfigLua = ''
+      -- dial.nvim
+      local dial_config = require "dial.config"
+      local augend = require "dial.augend"
+
+      dial_config.augends:register_group {
+        default = {
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.date.alias["%Y/%m/%d"],
+        },
+        visual = {
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.date.alias["%Y/%m/%d"],
+          augend.constant.alias.alpha,
+          augend.constant.alias.Alpha,
+        },
+        mygroup = {
+          augend.constant.new {
+            elements = { "and", "or" },
+            word = true,   -- if false, "sand" is incremented into "sor", 
+                           -- "doctor" into "doctand", etc.
+            cyclic = true, -- "or" is incremented into "and".
+          },
+          augend.constant.new {
+            elements = { "True", "False" },
+            word = true,
+            cyclic = true,
+          },
+          augend.constant.new {
+            elements = { "public", "private" },
+            word = true,
+            cyclic = true,
+          },
+          augend.constant.new {
+            elements = { "&&", "||" },
+            word = false,
+            cyclic = true,
+          },
+          augend.date.alias["%m/%d/%Y"], -- date (02/19/2022, etc.)
+          augend.constant.alias.bool, -- boolean value (true <-> false)
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.semver.alias.semver
+        },
+      }
+
+      local map = require "dial.map"
+
+      -- change augends in VISUAL mode
+      vim.api.nvim_set_keymap("n", "<C-a>", map.inc_normal "mygroup", { noremap = true })
+      vim.api.nvim_set_keymap("n", "<C-x>", map.dec_normal "mygroup", { noremap = true })
+      vim.api.nvim_set_keymap("v", "<C-a>", map.inc_normal "visual", { noremap = true })
+      vim.api.nvim_set_keymap("v", "<C-x>", map.dec_normal "visual", { noremap = true })
+    '';
+
   };
 }
