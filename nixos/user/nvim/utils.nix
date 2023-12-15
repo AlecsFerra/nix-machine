@@ -20,6 +20,8 @@ in
         "monaqa/dial.nvim"
         # Show f-like command hint
         "unblevable/quick-scope"
+        # Automatically create directory on save
+        "jghauser/mkdir.nvim"
       ];
     };
     
@@ -57,11 +59,6 @@ in
     # Suggestion in :, / and ? menu
     plugins.wilder.enable = true;
 
-    # Move around with s
-    plugins.leap = {
-      enable = true;
-    };
-    
     # Better syntax highlighting and selection
     # ctrl space to start selecion
     plugins.treesitter = {

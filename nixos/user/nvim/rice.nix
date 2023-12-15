@@ -7,6 +7,8 @@
       plugins = [
         # Make scrolling nice
         "karb94/neoscroll.nvim"
+        # Center tab
+        "shortcuts/no-neck-pain.nvim"
       ];
     };
 
