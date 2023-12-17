@@ -22,6 +22,8 @@ in
         "unblevable/quick-scope"
         # Automatically create directory on save
         "jghauser/mkdir.nvim"
+        # Unicode latex symbols
+        "arthurxavierx/vim-unicoder"
       ];
     };
     
