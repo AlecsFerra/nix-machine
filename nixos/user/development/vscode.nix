@@ -18,7 +18,7 @@ in
     };
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
-      nvarner.typst-lsp
+      # nvarner.typst-lsp
       eamodio.gitlens
       arrterian.nix-env-selector
       zhuangtongfa.material-theme
