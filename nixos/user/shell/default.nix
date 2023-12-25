@@ -9,6 +9,11 @@
     s = "sudo ";
     sv = "sudoedit";
 
+    rm = "rm -r";
+    cp = "cp -r";
+
+    wifi = "nmcli dev wifi show-password";
+
     lt = "tree";
 
     znix-shell = "nix-shell --run zsh";
