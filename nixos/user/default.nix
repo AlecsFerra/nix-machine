@@ -54,6 +54,7 @@ in
 	tree
 	acpi
 	mpv
+	dolphin-emu
       ];
 
       # The same as the nix-os state version
