@@ -38,6 +38,7 @@
         facebook-container
         clearurls
         skip-redirect
+        istilldontcareaboutcookies
 
         # Usability
         vimium
