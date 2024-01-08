@@ -68,6 +68,9 @@ in
             natural_scroll = true;
           };
         };
+        
+        # Necessary for the status bar
+        debug.disable_logs = false;
 
         gestures = {
           workspace_swipe = true;
