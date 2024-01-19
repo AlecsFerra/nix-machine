@@ -12,8 +12,6 @@
       ];
     };
 
-    colorschemes.onedark.enable = true;
-    
     # Fancy menus
     plugins.noice = {
       enable = true;
