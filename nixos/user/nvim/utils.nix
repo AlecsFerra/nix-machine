@@ -41,6 +41,9 @@ in
       extraOptions."auto_save_enabled" = true;
     };
     
+    # S<symbol> in visual mode
+    plugins.surround.enable = true;
+    
     # Floating terminal
     # <leader> t
     plugins.floaterm = {
