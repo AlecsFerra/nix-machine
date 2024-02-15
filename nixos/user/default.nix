@@ -55,6 +55,9 @@ in
 	acpi
 	mpv
 	dolphin-emu
+	imv
+	wl-mirror
+	(aspellWithDicts (ds: with ds; [ en en-computers en-science it ]))
       ];
 
       # The same as the nix-os state version
