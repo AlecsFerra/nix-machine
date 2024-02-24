@@ -26,6 +26,7 @@ in
             pkgs.bitwarden-cli
             pkgs.libqalculate
           ]}"
+          ${pkgs.libqalculate}/bin/qalc -e
           exec ${getBin ulauncherPackage}/bin/ulauncher --hide-window
         '';
         Restart = "on-failure";
