@@ -2,7 +2,7 @@
 let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
-    rev = "0f1c0bda6dad29b2609cafcea512866b86aa2be5"; 
+    rev = "060a05138ca1a46fc0a0f79ef27f080cac57a59e"; 
   });
 in
 {
