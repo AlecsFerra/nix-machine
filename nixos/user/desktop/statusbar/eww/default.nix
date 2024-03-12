@@ -2,12 +2,12 @@
 with lib;
 let
   cfg = config.wayland.statusbar;
-  ewwPackage = pkgs.eww-wayland;
+  ewwPackage = pkgs.eww;
 in
 {
   config = mkIf cfg.eww.enable {
     home.packages = [
-      pkgs.eww-wayland
+      pkgs.eww
     ];
 
     programs.eww.package = ewwPackage;

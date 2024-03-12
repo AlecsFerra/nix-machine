@@ -138,60 +138,63 @@
     };
 
     plugins.luasnip.enable = true;
-    plugins.nvim-cmp = {
+
+    plugins.cmp = {
       enable = true;
-      mapping = {
-        "<C-n>" = /* lua */ "cmp.mapping.select_next_item()";
-        "<C-p>" = /* lua */ "cmp.mapping.select_prev_item()";
-        "<C-d>" = /* lua */ "cmp.mapping.scroll_docs(-4)";
-        "<C-f>" = /* lua */ "cmp.mapping.scroll_docs(4)";
-        "<C-Space>" = /* lua */ "cmp.mapping.complete {}";
-        "<CR>" = /* lua */ ''
-          cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
-          }
-        '';
-        "<Tab>" = /* lua */ ''
-          cmp.mapping(
-            function(fallback)
-              local luasnip = require 'luasnip'
-              if cmp.visible() then
-                cmp.select_next_item()
-              elseif luasnip.expand_or_locally_jumpable() then
-                luasnip.expand_or_jump()
-              else
-                fallback()
-              end
-            end, 
-            { 'i', 's' }
-          )
-        '';
-        "<S-Tab>" = /* lua */ ''
-          cmp.mapping(
-            function(fallback)
-              local luasnip = require 'luasnip'
-              if cmp.visible() then
-                cmp.select_prev_item()
-              elseif luasnip.locally_jumpable(-1) then
-                luasnip.jump(-1)
-              else
-                fallback()
-              end
-            end, 
-            { 'i', 's' }
-          )
-        '';
+      settings = {
+        mapping = {
+          "<C-n>" = /* lua */ "cmp.mapping.select_next_item()";
+          "<C-p>" = /* lua */ "cmp.mapping.select_prev_item()";
+          "<C-d>" = /* lua */ "cmp.mapping.scroll_docs(-4)";
+          "<C-f>" = /* lua */ "cmp.mapping.scroll_docs(4)";
+          "<C-Space>" = /* lua */ "cmp.mapping.complete {}";
+          "<CR>" = /* lua */ ''
+            cmp.mapping.confirm {
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            }
+          '';
+          "<Tab>" = /* lua */ ''
+            cmp.mapping(
+              function(fallback)
+                local luasnip = require 'luasnip'
+                if cmp.visible() then
+                  cmp.select_next_item()
+                elseif luasnip.expand_or_locally_jumpable() then
+                  luasnip.expand_or_jump()
+                else
+                  fallback()
+                end
+              end, 
+              { 'i', 's' }
+            )
+          '';
+          "<S-Tab>" = /* lua */ ''
+            cmp.mapping(
+              function(fallback)
+                local luasnip = require 'luasnip'
+                if cmp.visible() then
+                  cmp.select_prev_item()
+                elseif luasnip.locally_jumpable(-1) then
+                  luasnip.jump(-1)
+                else
+                  fallback()
+                end
+              end, 
+              { 'i', 's' }
+            )
+          '';
+        };
+
+        sources = [
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
+
+        snippet.expand = "luasnip";
       };
-
-      snippet.expand = "luasnip";
-
-      sources = [
-        { name = "nvim_lsp"; }
-        { name = "luasnip"; }
-        { name = "path"; }
-        { name = "buffer"; }
-      ];
     };
   };
 }
