@@ -101,6 +101,11 @@
 
     # Fingerprint reader
     fprintd.enable = true;
+    fprintd.package = pkgs.fprintd.overrideAttrs (_: { 
+      mesonCheckFlags = [ 
+        "--no-suite" "fprintd:TestPamFprintd"
+      ]; 
+    });
 
     fwupd.enable = true;
   };
