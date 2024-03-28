@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   fromStore = pkgs.vscode-utils.extensionFromVscodeMarketplace;
 in
@@ -32,10 +32,12 @@ in
     ];
 
     userSettings = {
-      "workbench.colorTheme" = "Stylix";
+      "workbench.colorTheme" = lib.mkForce "One Dark Pro";
       "workbench.startupEditor" = "none";
       "keyboard.dispatch" = "keyCode";
       "vim.useSystemClipboard" = true;
+      "explorer.excludeGitIgnore" = true;
+      "editor.unicodeHighlight.ambiguousCharacters" = false;
     };
   };
 }
