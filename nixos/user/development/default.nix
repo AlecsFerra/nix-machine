@@ -24,5 +24,8 @@
       agdaPackages.standard-library
       agdaPackages.cubical
     ])
+
+    # LaTeX
+    texlive.combined.scheme-full
   ];
 }
