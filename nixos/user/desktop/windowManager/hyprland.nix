@@ -145,6 +145,9 @@ in
           # Brighness
           ", XF86MonBrightnessDown, exec, ${getExe cfg.brightness.decrease}"
           ", XF86MonBrightnessUp,   exec, ${getExe cfg.brightness.increase}"
+
+          # Screenshots
+          ", Print, exec, ${getExe cfg.screenshot}"
         ];
 
         # Risotto

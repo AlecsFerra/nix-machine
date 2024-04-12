@@ -43,6 +43,11 @@ with lib;
       };
     };
 
+    screenshot = mkOption {
+      type = types.package;
+      description =
+        "Executable package to be launched to take a screenshot";
+    };
 
     brightness = {
       increase = mkOption {
