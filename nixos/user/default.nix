@@ -60,6 +60,14 @@ in
 	(aspellWithDicts (ds: with ds; [ en en-computers en-science it ]))
       ];
 
+      xdg.mimeApps = {
+	enable = true;
+	defaultApplications = {
+	  "application/pdf" =
+	    "org.pwmt.zathura-pdf-mupdf.desktop;";
+	};
+      };
+
       # The same as the nix-os state version
       home.stateVersion = "23.05";
     };
