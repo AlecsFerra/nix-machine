@@ -25,6 +25,7 @@ in
             "/run/current-system/sw"
             pkgs.bitwarden-cli
             pkgs.libqalculate
+            pkgs.glib
           ]}"
           ${pkgs.libqalculate}/bin/qalc -e
           exec ${getBin ulauncherPackage}/bin/ulauncher --hide-window
