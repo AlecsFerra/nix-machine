@@ -57,14 +57,16 @@ in
 	dolphin-emu
 	imv
 	wl-mirror
+	zotero
 	(aspellWithDicts (ds: with ds; [ en en-computers en-science it ]))
       ];
 
       xdg.mimeApps = {
 	enable = true;
 	defaultApplications = {
-	  "application/pdf" =
-	    "org.pwmt.zathura-pdf-mupdf.desktop;";
+	  "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop;";
+	  "x-scheme-handler/http"  = "firefox.desktop";
+	  "x-scheme-handler/https" = "firefox.desktop";
 	};
       };
 
