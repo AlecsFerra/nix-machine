@@ -80,6 +80,9 @@ in
         nodeDecremental = "<bs>";
       };
     };
+    
+    # Display context on the top line
+    plugins.treesitter-context.enable = true;
 
     # Pretty menus
     # Find files:

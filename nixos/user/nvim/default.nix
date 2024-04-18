@@ -46,6 +46,7 @@ in
 
       number = true;
       signcolumn = "yes";
+      relativenumber = true;
 
       updatetime = 250;
       timeoutlen = 300;
