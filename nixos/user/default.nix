@@ -48,7 +48,6 @@ in
 	zathura
 	python3
 	unzip
-	chromium
 	qbittorrent
 	scrcpy
 	tree
