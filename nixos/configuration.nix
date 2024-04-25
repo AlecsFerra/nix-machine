@@ -116,11 +116,14 @@
     enable = true;
 
     wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
+
     configPackages = with pkgs; [ 
       xdg-desktop-portal-gtk 
       xdg-desktop-portal-wlr 
     ];
   };
+  programs.hyprland.enable = true;
 
 
   hardware = {
