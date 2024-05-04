@@ -68,6 +68,7 @@ in
 	  "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop;";
 	  "x-scheme-handler/http"  = "firefox.desktop";
 	  "x-scheme-handler/https" = "firefox.desktop";
+	  "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
 	};
       };
 
