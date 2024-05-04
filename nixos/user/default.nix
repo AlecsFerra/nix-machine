@@ -60,6 +60,8 @@ in
 	(aspellWithDicts (ds: with ds; [ en en-computers en-science it ]))
       ];
 
+      services.syncthing.enable = true;
+
       xdg.mimeApps = {
 	enable = true;
 	defaultApplications = {
