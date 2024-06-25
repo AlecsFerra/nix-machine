@@ -57,7 +57,7 @@ in
 	imv
 	wl-mirror
 	zotero
-	(aspellWithDicts (ds: with ds; [ en en-computers en-science it ]))
+	(aspellWithDicts (ds: with ds; [ en en-computers it ]))
       ];
 
       services.syncthing.enable = true;

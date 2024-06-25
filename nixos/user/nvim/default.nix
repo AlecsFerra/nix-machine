@@ -2,7 +2,7 @@
 let
   nixvim = import (builtins.fetchGit {
     url = "https://github.com/nix-community/nixvim";
-    rev = "8b500ef1db8c65ebb94b31434146e00efe4e8b9f"; 
+    # rev = "8b500ef1db8c65ebb94b31434146e00efe4e8b9f"; 
   });
 in
 {
@@ -27,7 +27,7 @@ in
       maploacalleader = " ";
     };
 
-    options = {
+    opts = {
       mouse = "a";
       clipboard = "unnamedplus";
       

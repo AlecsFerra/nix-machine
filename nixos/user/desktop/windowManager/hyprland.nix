@@ -31,7 +31,7 @@ in
         workspaces =
           let
             grep = "${getExe pkgs.gnugrep}";
-            tail = "${getBin pkgs.coreutils}/bin/tail";
+            socat = "${getExe pkgs.socat}";
           in
           {
             number = 10;
@@ -53,7 +53,7 @@ in
               '';
             listen = pkgs.writeShellScriptBin "hyprland-listen"
               ''
-                ${tail} -f /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log
+                ${socat} -u UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock -
               '';
           };
       };
@@ -154,7 +154,10 @@ in
         general = {
           gaps_out = 7;
           gaps_in = 5;
-          cursor_inactive_timeout = 5;
+        };
+
+        cursor = {
+          inactive_timeout = 5;
         };
 
         animations = {

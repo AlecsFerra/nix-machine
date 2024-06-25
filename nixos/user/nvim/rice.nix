@@ -36,11 +36,13 @@
     # Show scope guides
     plugins.indent-blankline = {
       enable = true;
-      scope = {
-        showEnd = false;
-        showStart = false;
+      settings = {
+        scope = {
+          show_end = false;
+          show_start = false;
+        };
+        whitespace.remove_blankline_trail = false;
       };
-      whitespace.removeBlanklineTrail = false;
     };
 
     extraConfigLua = ''

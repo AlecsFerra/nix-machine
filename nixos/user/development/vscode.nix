@@ -9,7 +9,7 @@ in
 
     mutableExtensionsDir = false;
     haskell = {
-      enable = true;
+      enable = false;
       hie = {
         enable = true;
 	executablePath = pkgs.haskell-language-server.outPath 
@@ -18,6 +18,12 @@ in
     };
     extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
+      (fromStore {
+        name = "lean4";
+        publisher = "leanprover";
+        version = "0.0.164";
+	sha256 = "sha256-S63NNIvTFZspxUDfxZFFJm8pPYjJ/iYx7ObrWKRj3yk=";
+      })
       # nvarner.typst-lsp
       eamodio.gitlens
       arrterian.nix-env-selector

@@ -9,29 +9,25 @@
       {
         mode = "n";
         key = "[d";
-        lua = true;
-        action = /* lua */ "vim.diagnostic.goto_prev";
+        action.__raw = /* lua */ "vim.diagnostic.goto_prev";
         options.desc = "Go to previous diagnostic message";
       }
       {
         mode = "n";
         key = "]d";
-        lua = true;
-        action = /* lua */ "vim.diagnostic.goto_next";
+        action.__raw = /* lua */ "vim.diagnostic.goto_next";
         options.desc = "Go to next diagnostic message";
       }
       {
         mode = "n";
         key = "<leader>e";
-        lua = true;
-        action = /* lua */ "vim.diagnostic.open_float";
+        action.__raw = /* lua */ "vim.diagnostic.open_float";
         options.desc = "Open floating diagnostic message";
       }
       {
         mode = "n";
         key = "<leader>q";
-        lua = true;
-        action = /* lua */ "vim.diagnostic.setloclist";
+        action.__raw = /* lua */ "vim.diagnostic.setloclist";
         options.desc = "Open diagnostic list";
       }
     ];
