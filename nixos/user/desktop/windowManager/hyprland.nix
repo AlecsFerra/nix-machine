@@ -62,8 +62,8 @@ in
     wayland.windowManager.hyprland = {
       settings = {
         input = {
-          kb_layout = "it";
-          kb_options = "caps:swapescape";
+          kb_layout = "it,us";
+          kb_options = "caps:swapescape,grp:alt_space_toggle";
           touchpad = {
             natural_scroll = true;
           };
