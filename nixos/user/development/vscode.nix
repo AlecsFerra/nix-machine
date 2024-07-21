@@ -9,7 +9,7 @@ in
 
     mutableExtensionsDir = false;
     haskell = {
-      enable = false;
+      enable = true;
       hie = {
         enable = true;
 	executablePath = pkgs.haskell-language-server.outPath 

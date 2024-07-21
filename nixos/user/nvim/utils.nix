@@ -68,16 +68,20 @@ in
     # ctrl space to start selecion
     plugins.treesitter = {
       enable = true;
-      indent = true;
-      
       nixvimInjections = true;
-
-      incrementalSelection.enable = true;
-      incrementalSelection.keymaps = {
-        initSelection = "<c-space>";
-        nodeIncremental = "<c-space>";
-        scopeIncremental = "<c-s>";
-        nodeDecremental = "<bs>";
+      folding = false;
+      
+      settings = {
+        indent.enable = true;
+        incremental_selection = {
+          enable = true;
+          keymaps = {
+            init_selection = "<c-space>";
+            node_incremental = "<c-space>";
+            scope_incremental = "<c-s>";
+            node_decremental = "<bs>";
+          };
+        };
       };
     };
     

@@ -32,7 +32,7 @@ with lib;
     
     background.swaybg.enable = true;
     statusbar.eww.enable = true;
-    notifications.mako.enable = true;
+    notifications.swaync.enable = true;
     runner.ulauncher.enable = true;
     multimedia.avizo.enable = true;
   };
