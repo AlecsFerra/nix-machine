@@ -5,6 +5,12 @@
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
+    cursor = {
+      name = "macOS-BigSur";
+      package = pkgs.apple-cursor;
+      size = 24;
+    };
+
     fonts = {
       serif = {
         name = "Cantarell";

@@ -1,5 +1,8 @@
 { config, pkgs, lib, ... }:
 with lib;
+let
+  stylix = config.stylix;
+in
 {
   imports = [ 
     ./runner
@@ -13,8 +16,6 @@ with lib;
 
   gtk = {
     enable = true;
-    cursorTheme.name = "macOS-Monterey-White";
-    cursorTheme.package = pkgs.apple-cursor;
     iconTheme.name = "Papirus-Dark";
     iconTheme.package = pkgs.papirus-icon-theme;
   };
