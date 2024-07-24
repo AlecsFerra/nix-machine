@@ -168,12 +168,12 @@
   };
 
   nix = {
-    settings.auto-optimise-store = true;
+    optimise.automatic = true;
     settings.experimental-features = [ "nix-command" "flakes" ];
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 1m";
+      options = "--delete-older-than 1w";
     };
   };
 

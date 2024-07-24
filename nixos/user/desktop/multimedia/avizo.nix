@@ -8,7 +8,13 @@ in
 {
   config = mkIf cfg.avizo.enable {
     
-    services.avizo.enable = true;
+    services.avizo = {
+      enable = true;
+      settings.default = {
+        image-opacity = lib.mkForce 1;
+        border-width = lib.mkForce 0;
+      };
+    };
 
     wayland.windowManager = {
       audio = {

@@ -11,6 +11,14 @@ with lib;
     ./multimedia
   ];
 
+  gtk = {
+    enable = true;
+    cursorTheme.name = "macOS-Monterey-White";
+    cursorTheme.package = pkgs.apple-cursor;
+    iconTheme.name = "Papirus-Dark";
+    iconTheme.package = pkgs.papirus-icon-theme;
+  };
+
   wayland = {
     lock = {
       swaylockidle.enable = true;
@@ -34,6 +42,6 @@ with lib;
     statusbar.eww.enable = true;
     notifications.swaync.enable = true;
     runner.ulauncher.enable = true;
-    multimedia.avizo.enable = true;
+    multimedia.syshud.enable = true;
   };
 }

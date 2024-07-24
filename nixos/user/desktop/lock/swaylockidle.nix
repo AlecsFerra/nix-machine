@@ -18,8 +18,22 @@ in
       };
     };
 
+    systemd.user.services.inhibitIdle = {
+      Unit = {
+        Description = "sway-audio-idle-inhibit-wrapper";
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = pkgs.writeShellScript "sway-audio-idle-inhibit-wrapper" ''
+          exec ${getExe pkgs.sway-audio-idle-inhibit}
+        '';
+        Restart = "on-failure";
+      };
+      Install.WantedBy = [ "graphical-session.target" ];
+    };
+
     services.swayidle = {
-      enable = false;
+      enable = true;
       systemdTarget = "graphical-session.target";
       events = [
         {
