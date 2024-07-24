@@ -60,6 +60,7 @@ in
         scale {
           padding: 0px;
           margin-right: 5px;
+          margin-right: 15px;
         }
 
         label {
