@@ -62,7 +62,7 @@ in
     plugins.vim-bbye.enable = true;
 
     # Suggestion in :, / and ? menu
-    plugins.wilder.enable = true;
+    plugins.wilder.enable = false;
 
     # Better syntax highlighting and selection
     # ctrl space to start selecion

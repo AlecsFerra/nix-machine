@@ -1,12 +1,18 @@
 { pkgs, ... }: 
 let 
   user = "alecs";
-  stylix = pkgs.fetchFromGitHub {
-      owner = "danth";
-      repo = "stylix";
-      rev = "6c447e8761018fa75dfdc20df6232d67a8cc93f2";
-      hash = "sha256-HpRE7W000QQmII9Tt/BBEEL6Io1mzUL6rl82QoRQP3A=";
-  };
+  stylix = import (pkgs.fetchFromGitHub {
+    owner = "danth";
+    repo = "stylix";
+    rev = "c974c17cd089dcbfb16fbde028dd00bcc05e3f73";
+    hash = "sha256-HpRE7W000QQmII9Tt/BBEEL6Io1mzUL6rl82QoRQP3A=";
+  });
+  nixvim = import (pkgs.fetchFromGitHub {
+    owner = "nix-community";
+    repo = "nixvim";
+    rev = "216d64c158da5523d5b3db0895e1345175c21502"; 
+    hash = "sha256-iWTGRfYoq0ppT3P4D2bRDVkLuTZAzuud/gsxVzPTHDg=";
+  });
 in
 {
   imports = [ <home-manager/nixos> ];
@@ -29,7 +35,8 @@ in
     users.${user} = { pkgs, ... }: {
       
       imports = [
-	 (import stylix).homeManagerModules.stylix
+  	stylix.homeManagerModules.stylix
+	nixvim.homeManagerModules.nixvim
         ./shell
 	./development
 	./nvim

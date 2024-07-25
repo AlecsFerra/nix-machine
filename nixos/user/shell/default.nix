@@ -6,6 +6,9 @@
     ":q" = "exit";
 
     v = "$EDITOR";
+    vim = "$EDITOR";
+    vi = "$EDITOR";
+
     s = "sudo ";
     sv = "sudoedit";
 

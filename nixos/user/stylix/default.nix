@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
-    image = ./wallpapers/eclipse.jpg;
+    image = ./wallpapers/jnasa.png;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
