@@ -31,12 +31,6 @@ in
       hyprland.enable = true;
       terminal = pkgs.writeShellScriptBin "alacritty-run"
         "${getBin pkgs.alacritty}/bin/alacritty";
-
-      screenshot = pkgs.writeShellScriptBin "screenshoot-default"
-        ''
-          ${getExe pkgs.grim} -g "$(${getExe pkgs.slurp})" - \
-          | ${getExe pkgs.swappy} -f -
-        '';
     };
     
     background.swaybg.enable = true;
@@ -44,5 +38,6 @@ in
     notifications.swaync.enable = true;
     runner.ulauncher.enable = true;
     multimedia.syshud.enable = true;
+    multimedia.swapgrim.enable = true;
   };
 }
