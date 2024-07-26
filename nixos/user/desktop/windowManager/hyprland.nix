@@ -63,7 +63,7 @@ in
       settings = {
         input = {
           kb_layout = "it,us";
-          kb_options = "caps:swapescape,grp:alt_space_toggle";
+          kb_options = "grp:alt_space_toggle";
           touchpad = {
             natural_scroll = true;
           };

@@ -15,7 +15,11 @@ let
   });
 in
 {
-  imports = [ <home-manager/nixos> ];
+  imports = [ 
+    <home-manager/nixos> 
+    ./keyboardremaps.nix
+  ];
+
   users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ 
