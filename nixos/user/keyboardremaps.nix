@@ -7,7 +7,7 @@
 	caps)
 
       (defalias
-	  escctrl (tap-hold 200 200 esc lctrl))
+	  escctrl (tap-hold 250 250 esc lctrl))
 
       (deflayer base
 	@escctrl)
