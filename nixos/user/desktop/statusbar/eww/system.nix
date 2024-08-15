@@ -70,7 +70,7 @@ in
                       (''${EWW_BATTERY.BAT0.status})"
             :text {battery_icons[
                     round(EWW_BATTERY.total_avg / 
-                          (100 / arraylength(battery_icons)) - 1,0)]}))
+                          (100 / arraylength(battery_icons)) - 1,0)] ?: "󰂎"}))
 
         (defwidget charging-icon []
           (label
