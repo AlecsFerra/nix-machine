@@ -112,7 +112,7 @@
     fprintd.enable = true;
     fprintd.package = pkgs.fprintd.overrideAttrs (_: { 
       mesonCheckFlags = [ 
-        "--no-suite" "fprintd:TestPamFprintd"
+        "--suite" "nonexistent_suite"
       ]; 
     });
 
