@@ -68,6 +68,7 @@ in
 	imv
 	wl-mirror
 	zotero
+	localsend
 	(aspellWithDicts (ds: with ds; [ en en-computers it ]))
       ];
 
