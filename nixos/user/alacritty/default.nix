@@ -12,7 +12,7 @@
       };
       cursor.style = "Beam";
 
-      live_config_reload = true;
+      general.live_config_reload = true;
     };
   };
 }

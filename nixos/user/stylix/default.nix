@@ -1,13 +1,14 @@
 { pkgs, ... }:
 {
   stylix = {
+
+    enable = true;
+
     image = ./wallpapers/jnasa.png;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
     cursor = {
-      name = "macOS-BigSur";
-      package = pkgs.apple-cursor;
       size = 24;
     };
 

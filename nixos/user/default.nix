@@ -4,8 +4,8 @@ let
   stylix = import (pkgs.fetchFromGitHub {
     owner = "danth";
     repo = "stylix";
-    rev = "c974c17cd089dcbfb16fbde028dd00bcc05e3f73";
-    hash = "sha256-HpRE7W000QQmII9Tt/BBEEL6Io1mzUL6rl82QoRQP3A=";
+    rev = "04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
+    hash = "sha256-uGjTjvvlGQfQ0yypVP+at0NizI2nrb6kz4wGAqzRGbY=";
   });
   nixvim = import (pkgs.fetchFromGitHub {
     owner = "nix-community";
