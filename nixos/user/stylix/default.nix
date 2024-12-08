@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   stylix = {
-
     enable = true;
 
     image = ./wallpapers/jnasa.png;
+
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/onedark.yaml";
 
@@ -24,7 +24,7 @@
       };
 
       monospace = {
-	package = pkgs.nerdfonts;
+	package = pkgs.nerd-fonts.fira-code;
 	name = "FiraCode Nerd Font Mono";
       };
 

@@ -4,14 +4,14 @@ let
   stylix = import (pkgs.fetchFromGitHub {
     owner = "danth";
     repo = "stylix";
-    rev = "04afcfc0684d9bbb24bb1dc77afda7c1843ec93b";
-    hash = "sha256-uGjTjvvlGQfQ0yypVP+at0NizI2nrb6kz4wGAqzRGbY=";
+    rev = "e309d64fe7f203274a7913e1d2b74307d15ba122";
+    hash = "sha256-RH/8yIuo+fNLCjQ6e1mnXwmmxymjvfWC9JcbDuIA8TM=";
   });
   nixvim = import (pkgs.fetchFromGitHub {
     owner = "nix-community";
     repo = "nixvim";
-    rev = "216d64c158da5523d5b3db0895e1345175c21502"; 
-    hash = "sha256-iWTGRfYoq0ppT3P4D2bRDVkLuTZAzuud/gsxVzPTHDg=";
+    rev = "08be20270d62e31f215f4592867d53576af15001";
+    hash = "sha256-8Meoqfk61EsMB3x/HQcttkgJqUm45kjtOyQGrtHP/H4=";
   });
 in
 {

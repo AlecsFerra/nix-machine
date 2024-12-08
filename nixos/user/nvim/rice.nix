@@ -15,7 +15,7 @@
     # Fancy menus
     plugins.noice = {
       enable = true;
-      views = {
+      settings.views = {
         cmdline_popup = {
           border = {
             style = "none";
@@ -23,6 +23,8 @@
         };
       };
     };
+
+    plugins.web-devicons.enable = true;
     
     # Higlight colors like orange
     plugins.nvim-colorizer.enable = true;

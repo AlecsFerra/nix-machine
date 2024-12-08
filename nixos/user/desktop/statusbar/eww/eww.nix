@@ -58,17 +58,17 @@ in
           (bar-box))
       '';
 
-      "eww/eww.scss".text = with config.lib.stylix.colors; ''
+      "eww/eww.scss".text = with config.lib.stylix; with config.stylix; ''
         @import "workspaces"
         @import "system"
 
         * {
-          font-family: "Fira Code";
+          font-family: "FiraCode Nerd Font";
           border-radius: 0;
         }
 
         .distro {
-          background-color: #${base0D};
+          background-color: #${colors.base0D};
           color: white;
           padding: 0 18px 0 10px;
           font-size: 22px;

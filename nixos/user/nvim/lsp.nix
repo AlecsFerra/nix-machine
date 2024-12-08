@@ -38,13 +38,12 @@
     # Servers
     plugins.lsp.servers = {
       clangd.enable = true;
-      rust-analyzer = {
+      rust_analyzer = {
         enable = true;
         installRustc = false;
         installCargo = false;
       };
       pyright.enable = true;
-      julials.enable = true;
     };
 
 

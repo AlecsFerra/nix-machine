@@ -11,7 +11,10 @@
       telescope_hoogle
     ];
 
-    plugins.lsp.servers.hls.enable = true;
+    plugins.lsp.servers.hls = {
+      enable = true;
+      installGhc = true;
+    };
 
     keymaps = [
       {

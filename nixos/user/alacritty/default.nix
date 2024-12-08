@@ -12,7 +12,6 @@
       };
       cursor.style = "Beam";
 
-      general.live_config_reload = true;
     };
   };
 }

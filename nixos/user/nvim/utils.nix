@@ -38,11 +38,11 @@ in
     # The rest of options is under :Save
     plugins.auto-session = {
       enable = true;
-      extraOptions."auto_save_enabled" = true;
+      settings."auto_save_enabled" = true;
     };
     
     # S<symbol> in visual mode
-    plugins.surround.enable = true;
+    plugins.vim-surround.enable = true;
     
     # Floating terminal
     # <leader> t
